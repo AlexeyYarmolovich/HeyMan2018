@@ -14,10 +14,21 @@ import Vision
 
 class CameraVC: UIViewController {
   
+  private var textDetectionRequest: VNDetectTextRectanglesRequest?
+  private let session = AVCaptureSession()
+  private var textObservations = [VNTextObservation]()
+  private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
+  private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
+  
+  private var cameraView: CameraView {
+    return view as! CameraView
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    tesseract?.pageSegmentationMode = .sparseText
+    tesseract?.pageSegmentationMode = .singleBlock
     // Recognize only these characters
     tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
     if isAuthorized() {
@@ -33,6 +44,7 @@ class CameraVC: UIViewController {
   private func configureTextDetection() {
     textDetectionRequest = VNDetectTextRectanglesRequest(completionHandler: handleDetection)
     textDetectionRequest?.reportCharacterBoxes = true
+    textDetectionRequest?.regionOfInterest = CGRect.init(x: 0.15, y: 0.4, width: 0.7, height: 0.2)
   }
   private func configureCamera() {
     cameraView.session = session
@@ -64,6 +76,18 @@ class CameraVC: UIViewController {
     cameraView.videoPreviewLayer.videoGravity = .resize
     session.startRunning()
   }
+  
+  private func removeTextLayers() {
+    guard let sublayers = self.view.layer.sublayers else {
+      return
+    }
+    for layer in sublayers[1...] {
+      if (layer as? CATextLayer) == nil {
+        layer.removeFromSuperlayer()
+      }
+    }
+  }
+  
   private func handleDetection(request: VNRequest, error: Error?) {
     
     guard let detectionResults = request.results else {
@@ -77,40 +101,39 @@ class CameraVC: UIViewController {
       return
     }
     textObservations = textResults as! [VNTextObservation]
-    DispatchQueue.main.async {
+    DispatchQueue.main.async { [weak self] in
       
-      guard let sublayers = self.view.layer.sublayers else {
-        return
-      }
-      for layer in sublayers[1...] {
-        if (layer as? CATextLayer) == nil {
-          layer.removeFromSuperlayer()
-        }
-      }
+      guard let `self` = self else { return }
+      
+      self.removeTextLayers()
+      
       let viewWidth = self.view.frame.size.width
       let viewHeight = self.view.frame.size.height
+      
       for result in textResults {
         
         if let textResult = result {
           
-          let layer = CALayer()
-          var rect = textResult.boundingBox
-          rect.origin.x *= viewWidth
-          rect.size.height *= viewHeight
-          rect.origin.y = ((1 - rect.origin.y) * viewHeight) - rect.size.height
-          rect.size.width *= viewWidth
-          
-          layer.frame = rect
-          layer.borderWidth = 2
-          layer.borderColor = UIColor.red.cgColor
-          self.view.layer.addSublayer(layer)
+          self.placeTextLayer(for: textResult,viewWidth: viewWidth, viewHeight: viewHeight)
         }
       }
     }
   }
-  private var cameraView: CameraView {
-    return view as! CameraView
+  
+  private func placeTextLayer(for textResult: VNTextObservation, viewWidth: CGFloat, viewHeight: CGFloat) {
+    let layer = CALayer()
+    var rect = textResult.boundingBox
+    rect.origin.x *= viewWidth
+    rect.size.height *= viewHeight
+    rect.origin.y = ((1 - rect.origin.y) * viewHeight) - rect.size.height
+    rect.size.width *= viewWidth
+    
+    layer.frame = rect
+    layer.borderWidth = 2
+    layer.borderColor = UIColor.red.cgColor
+    self.view.layer.addSublayer(layer)
   }
+  
   private func isAuthorized() -> Bool {
     let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     switch authorizationStatus {
@@ -130,11 +153,7 @@ class CameraVC: UIViewController {
     case .denied, .restricted: return false
     }
   }
-  private var textDetectionRequest: VNDetectTextRectanglesRequest?
-  private let session = AVCaptureSession()
-  private var textObservations = [VNTextObservation]()
-  private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
-  private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
+
 }
 
 extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
