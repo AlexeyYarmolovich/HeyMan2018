@@ -15,6 +15,11 @@
 		11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDA20D5640B00C54F94 /* PaymentMethod.swift */; };
 		11273FDD20D5649000C54F94 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDC20D5649000C54F94 /* Currency.swift */; };
 		11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */; };
+		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
+		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
+		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
+		8AAD15AE20D5738300FE881E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD15AD20D5738200FE881E /* CoreImage.framework */; };
+		8AAD15B020D573E600FE881E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD15AF20D573E600FE881E /* libstdc++.6.0.9.tbd */; };
 		B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054C20D28B6C00144955 /* AppDelegate.swift */; };
 		B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054E20D28B6C00144955 /* CreateTripVC.swift */; };
 		B409055220D28B6C00144955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055020D28B6C00144955 /* Main.storyboard */; };
@@ -33,6 +38,12 @@
 		11273FDC20D5649000C54F94 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodVC.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		8A9471A920D55B3100523485 /* HeyMan2018-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HeyMan2018-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A9471AA20D55C1D00523485 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		8AAD15AD20D5738200FE881E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		8AAD15AF20D573E600FE881E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		B409054920D28B6C00144955 /* HeyMan2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyMan2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054C20D28B6C00144955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B409054E20D28B6C00144955 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripVC.swift; sourceTree = "<group>"; };
@@ -49,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AAD15B020D573E600FE881E /* libstdc++.6.0.9.tbd in Frameworks */,
+				8AAD15AE20D5738300FE881E /* CoreImage.framework in Frameworks */,
+				8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */,
 				E1B3CC5EA659FB4D85D22477 /* Pods_HeyMan2018.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +112,8 @@
 		748AF9B04D3E0177BA56CAF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AAD15AF20D573E600FE881E /* libstdc++.6.0.9.tbd */,
+				8AAD15AD20D5738200FE881E /* CoreImage.framework */,
 				2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */,
 			);
 			name = Frameworks;
@@ -106,6 +122,8 @@
 		8A9471A420D5564000523485 /* CameraVC */ = {
 			isa = PBXGroup;
 			children = (
+				8A9471A520D557BA00523485 /* CameraView.swift */,
+				8A9471A720D5586200523485 /* CameraVC.swift */,
 			);
 			path = CameraVC;
 			sourceTree = "<group>";
@@ -113,6 +131,7 @@
 		B409054020D28B6C00144955 = {
 			isa = PBXGroup;
 			children = (
+				8A9471AA20D55C1D00523485 /* TesseractOCR.framework */,
 				B409054B20D28B6C00144955 /* HeyMan2018 */,
 				B409054A20D28B6C00144955 /* Products */,
 				3F78F70879ED90AB94235FAC /* Pods */,
@@ -139,6 +158,7 @@
 				B409055020D28B6C00144955 /* Main.storyboard */,
 				B409055520D28B6D00144955 /* LaunchScreen.storyboard */,
 				B409055320D28B6D00144955 /* Assets.xcassets */,
+				8A9471A920D55B3100523485 /* HeyMan2018-Bridging-Header.h */,
 				B409055820D28B6D00144955 /* Info.plist */,
 			);
 			path = HeyMan2018;
@@ -261,6 +281,7 @@
 				11273FDD20D5649000C54F94 /* Currency.swift in Sources */,
 				11273FD120D5557000C54F94 /* CurrentTripVC.swift in Sources */,
 				11273FD520D55AB400C54F94 /* Money.swift in Sources */,
+				8A9471A620D557BA00523485 /* CameraView.swift in Sources */,
 				B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */,
 				11273FD720D55FD700C54F94 /* TripsListVC.swift in Sources */,
 				B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */,
@@ -268,6 +289,7 @@
 				11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */,
 				11273FD920D560C400C54F94 /* Trip.swift in Sources */,
 				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
+				8A9471A820D5586200523485 /* CameraVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,16 +436,30 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 67898N5Q5V;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HeyMan2018/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-lstdc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenfrvr.hackathon.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "74e4e054-16bb-41e7-ae73-813163610141";
 				PROVISIONING_PROFILE_SPECIFIER = HackathonTestProfile;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeyMan2018/HeyMan2018-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -436,15 +472,29 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HeyMan2018/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenfrvr.hackathon.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeyMan2018/HeyMan2018-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

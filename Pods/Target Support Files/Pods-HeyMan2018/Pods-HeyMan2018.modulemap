@@ -1,0 +1,6 @@
+framework module Pods_HeyMan2018 {
+  umbrella header "Pods-HeyMan2018-umbrella.h"
+
+  export *
+  module * { export * }
+}
