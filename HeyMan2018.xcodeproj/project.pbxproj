@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11273FD120D5557000C54F94 /* CurrentTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD020D5557000C54F94 /* CurrentTripVC.swift */; };
+		11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD220D55A4D00C54F94 /* TripItem.swift */; };
+		11273FD520D55AB400C54F94 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD420D55AB400C54F94 /* Money.swift */; };
 		B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054C20D28B6C00144955 /* AppDelegate.swift */; };
 		B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054E20D28B6C00144955 /* CreateTripVC.swift */; };
 		B409055220D28B6C00144955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055020D28B6C00144955 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11273FD020D5557000C54F94 /* CurrentTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTripVC.swift; sourceTree = "<group>"; };
+		11273FD220D55A4D00C54F94 /* TripItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripItem.swift; sourceTree = "<group>"; };
+		11273FD420D55AB400C54F94 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054920D28B6C00144955 /* HeyMan2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyMan2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054C20D28B6C00144955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +49,8 @@
 		11273FCB20D543C900C54F94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11273FD220D55A4D00C54F94 /* TripItem.swift */,
+				11273FD420D55AB400C54F94 /* Money.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -58,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				B409054E20D28B6C00144955 /* CreateTripVC.swift */,
+				11273FD020D5557000C54F94 /* CurrentTripVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -234,8 +243,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11273FD120D5557000C54F94 /* CurrentTripVC.swift in Sources */,
+				11273FD520D55AB400C54F94 /* Money.swift in Sources */,
 				B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */,
 				B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */,
+				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

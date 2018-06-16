@@ -12,7 +12,6 @@ import RxCocoa
 
 class CreateTripVC: UIViewController {
 
-
     @IBOutlet weak var carTripBtn: UIButton!
     @IBOutlet weak var flightTripBtn: UIButton!
     
