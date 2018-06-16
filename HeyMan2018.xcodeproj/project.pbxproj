@@ -12,6 +12,9 @@
 		11273FD520D55AB400C54F94 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD420D55AB400C54F94 /* Money.swift */; };
 		11273FD720D55FD700C54F94 /* TripsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD620D55FD700C54F94 /* TripsListVC.swift */; };
 		11273FD920D560C400C54F94 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FD820D560C400C54F94 /* Trip.swift */; };
+		11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDA20D5640B00C54F94 /* PaymentMethod.swift */; };
+		11273FDD20D5649000C54F94 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDC20D5649000C54F94 /* Currency.swift */; };
+		11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */; };
 		B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054C20D28B6C00144955 /* AppDelegate.swift */; };
 		B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054E20D28B6C00144955 /* CreateTripVC.swift */; };
 		B409055220D28B6C00144955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055020D28B6C00144955 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 		11273FD420D55AB400C54F94 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		11273FD620D55FD700C54F94 /* TripsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListVC.swift; sourceTree = "<group>"; };
 		11273FD820D560C400C54F94 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		11273FDA20D5640B00C54F94 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		11273FDC20D5649000C54F94 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodVC.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054920D28B6C00144955 /* HeyMan2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyMan2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054C20D28B6C00144955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 				11273FD820D560C400C54F94 /* Trip.swift */,
 				11273FD220D55A4D00C54F94 /* TripItem.swift */,
 				11273FD420D55AB400C54F94 /* Money.swift */,
+				11273FDA20D5640B00C54F94 /* PaymentMethod.swift */,
+				11273FDC20D5649000C54F94 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -73,6 +81,7 @@
 				B409054E20D28B6C00144955 /* CreateTripVC.swift */,
 				11273FD020D5557000C54F94 /* CurrentTripVC.swift */,
 				11273FD620D55FD700C54F94 /* TripsListVC.swift */,
+				11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,8 +137,8 @@
 				11273FCF20D551B300C54F94 /* Controllers */,
 				B409054C20D28B6C00144955 /* AppDelegate.swift */,
 				B409055020D28B6C00144955 /* Main.storyboard */,
-				B409055320D28B6D00144955 /* Assets.xcassets */,
 				B409055520D28B6D00144955 /* LaunchScreen.storyboard */,
+				B409055320D28B6D00144955 /* Assets.xcassets */,
 				B409055820D28B6D00144955 /* Info.plist */,
 			);
 			path = HeyMan2018;
@@ -249,11 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11273FDD20D5649000C54F94 /* Currency.swift in Sources */,
 				11273FD120D5557000C54F94 /* CurrentTripVC.swift in Sources */,
 				11273FD520D55AB400C54F94 /* Money.swift in Sources */,
 				B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */,
 				11273FD720D55FD700C54F94 /* TripsListVC.swift in Sources */,
 				B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */,
+				11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */,
+				11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */,
 				11273FD920D560C400C54F94 /* Trip.swift in Sources */,
 				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
 			);

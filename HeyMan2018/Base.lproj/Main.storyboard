@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RPD-14-xjF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BSy-tO-ucq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osa-uv-wQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="1275"/>
+            <point key="canvasLocation" x="670" y="752"/>
         </scene>
         <!--Trips ListVC-->
         <scene sceneID="TBm-jX-as4">
@@ -262,7 +262,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8i-qo-RLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="1950"/>
+            <point key="canvasLocation" x="670" y="1428"/>
+        </scene>
+        <!--Add Payment MethodVC-->
+        <scene sceneID="MJX-5A-fAL">
+            <objects>
+                <viewController id="BSy-tO-ucq" customClass="AddPaymentMethodVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iXd-JB-YXg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-BK-HXr">
+                                <rect key="frame" x="20" y="40" width="335" height="110"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fs3-AG-i61">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Currency" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Wv-CV-lN1">
+                                        <rect key="frame" x="0.0" y="40" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-dS-pDm">
+                                        <rect key="frame" x="0.0" y="80" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9Wv-CV-lN1" firstAttribute="width" secondItem="GFr-BK-HXr" secondAttribute="width" id="2SF-TX-T04"/>
+                                    <constraint firstItem="GpA-dS-pDm" firstAttribute="width" secondItem="GFr-BK-HXr" secondAttribute="width" id="3ow-rS-ult"/>
+                                    <constraint firstItem="Fs3-AG-i61" firstAttribute="width" secondItem="GFr-BK-HXr" secondAttribute="width" id="Fy6-Wz-vAv"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWr-Ab-L6T">
+                                <rect key="frame" x="144.5" y="170" width="85" height="30"/>
+                                <state key="normal" title="Add Method"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jWr-Ab-L6T" firstAttribute="centerX" secondItem="iXd-JB-YXg" secondAttribute="centerX" id="AWs-c6-mhz"/>
+                            <constraint firstItem="GFr-BK-HXr" firstAttribute="leading" secondItem="Q6S-la-pGg" secondAttribute="leading" constant="20" id="PX6-zc-gKQ"/>
+                            <constraint firstItem="GFr-BK-HXr" firstAttribute="top" secondItem="Q6S-la-pGg" secondAttribute="top" constant="20" id="fNX-IZ-rTl"/>
+                            <constraint firstItem="jWr-Ab-L6T" firstAttribute="top" secondItem="GFr-BK-HXr" secondAttribute="bottom" constant="20" id="iYL-qp-a2T"/>
+                            <constraint firstItem="Q6S-la-pGg" firstAttribute="trailing" secondItem="GFr-BK-HXr" secondAttribute="trailing" constant="20" id="q9z-pt-bAZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q6S-la-pGg"/>
+                    </view>
+                    <connections>
+                        <outlet property="addMethodBtn" destination="jWr-Ab-L6T" id="wK3-PH-29A"/>
+                        <outlet property="bankInput" destination="Fs3-AG-i61" id="WA4-OZ-iPB"/>
+                        <outlet property="currencyInput" destination="9Wv-CV-lN1" id="Qy7-9S-CUY"/>
+                        <outlet property="typeInput" destination="GpA-dS-pDm" id="2c2-pj-DfH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjj-XQ-n6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="1427"/>
         </scene>
     </scenes>
 </document>

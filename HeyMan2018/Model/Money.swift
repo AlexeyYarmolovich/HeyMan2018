@@ -21,14 +21,6 @@ struct Money {
         switch currency {
         case .usd, .eur: return String(format: "%.2f\(currency)", value)
         case .byn, .rub: return String(format: "\(currency)%.2f", value)
-        default: ()
         }
-    }
-    
-    enum Currency: String {
-        case usd = "$"
-        case eur = "€"
-        case byn = "BYN"
-        case rub = "RUB"
     }
 }
