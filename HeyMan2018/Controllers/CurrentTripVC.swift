@@ -21,28 +21,13 @@ class CurrentTripVC: UIViewController {
     
     @IBOutlet weak var itemTable: UITableView!
     
-    private var quickTasksTransition = Transition()
-//    var primeGestureRecognizer: UIPanGestureRecognizer {
-//        return quickTasksTransition.enterPanRecognizer
-//    }
-    
     private var items = [TripItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         itemTable.dataSource = self
-        
-        quickTasksTransition.sourceViewController = self
-//        self.swipeGestureRecognizer.require(toFail: primeGestureRecognizer)
-        
+
         loadItems()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        segue.destination.transitioningDelegate = quickTasksTransition
-        quickTasksTransition.destinationViewController = segue.destination
     }
     
     private func loadItems() {

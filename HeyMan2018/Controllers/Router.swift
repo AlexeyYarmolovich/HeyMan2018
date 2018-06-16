@@ -14,16 +14,28 @@ class Router {
     
     static let shared = Router()
     
+    var createTripVC: UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateTripVC")
+    }
+    
+    var currentTripVC: UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CurrentTripVC")
+    }
+    
+    var cameraVC: UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CameraVC")
+    }
+    
     func initialize() {
         if UserStorage.shared.launchedBefore() {
-            keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CurrentTripVC")
+            keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
         } else {
-            keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateTripVC")
+            keyWindow?.rootViewController = createTripVC
             UserStorage.shared.set(launchedBefore: true)
         }
     }
     
     func navigateToMain() {
-        keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CurrentTripVC")
+        keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
     }
 }

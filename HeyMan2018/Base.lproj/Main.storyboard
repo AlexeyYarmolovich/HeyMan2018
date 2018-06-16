@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--MainVC-->
+        <scene sceneID="Hyw-ip-ZtA">
+            <objects>
+                <pageViewController storyboardIdentifier="MainVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="10" navigationOrientation="horizontal" spineLocation="none" id="Dq7-gb-j1Y" customClass="MainVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ixf-IU-RQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-121" y="396"/>
+        </scene>
         <!--Create TripVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -42,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.45098039215686275" green="0.37952637672424316" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iCn-Nu-cNz" secondAttribute="trailing" constant="20" id="Ift-a9-5H8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ynl-7m-tqQ" secondAttribute="trailing" constant="20" id="QEQ-RV-ajX"/>
@@ -64,11 +72,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="670" y="73"/>
         </scene>
         <!--CameraVC-->
         <scene sceneID="B9J-bg-vIZ">
             <objects>
-                <viewController id="tMG-st-uK8" customClass="CameraVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraVC" id="tMG-st-uK8" customClass="CameraVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f8x-w5-WZV" customClass="CameraView" customModule="HeyMan2018" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +168,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.37254901960784315" green="0.29411764705882354" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vOv-CX-e4r" firstAttribute="leading" secondItem="1hQ-WI-GgA" secondAttribute="leading" id="3yH-iz-mUZ"/>
                             <constraint firstItem="OBP-eN-rdR" firstAttribute="top" secondItem="1hQ-WI-GgA" secondAttribute="top" id="9RR-Mc-xTc"/>
@@ -173,7 +182,6 @@
                     </view>
                     <connections>
                         <outlet property="itemTable" destination="OBP-eN-rdR" id="Uwv-0f-1IN"/>
-                        <segue destination="tMG-st-uK8" kind="presentation" identifier="ScannerSegue" id="VQG-mC-yk3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osa-uv-wQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,7 +267,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.29411764709999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YFQ-Mn-yMb" firstAttribute="leading" secondItem="6jL-5x-M7y" secondAttribute="leading" id="5vK-ao-BfI"/>
                             <constraint firstItem="ltY-af-EV5" firstAttribute="trailing" secondItem="6jL-5x-M7y" secondAttribute="trailing" id="UZA-Gc-Lcr"/>
@@ -320,7 +328,7 @@
                                 <state key="normal" title="Add Method"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.29411764709999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jWr-Ab-L6T" firstAttribute="centerX" secondItem="iXd-JB-YXg" secondAttribute="centerX" id="AWs-c6-mhz"/>
                             <constraint firstItem="GFr-BK-HXr" firstAttribute="leading" secondItem="Q6S-la-pGg" secondAttribute="leading" constant="20" id="PX6-zc-gKQ"/>
