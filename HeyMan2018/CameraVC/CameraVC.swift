@@ -12,14 +12,14 @@ import UIKit
 import Vision 
 
 
-class ViewController: UIViewController {
+class CameraVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-//    tesseract?.pageSegmentationMode = .sparseText
+    tesseract?.pageSegmentationMode = .sparseText
     // Recognize only these characters
-//    tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
+    tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
     if isAuthorized() {
       configureTextDetection()
       configureCamera()
@@ -133,11 +133,11 @@ class ViewController: UIViewController {
   private var textDetectionRequest: VNDetectTextRectanglesRequest?
   private let session = AVCaptureSession()
   private var textObservations = [VNTextObservation]()
-//  private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
+  private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
   private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
 }
 
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
   // MARK: - Camera Delegate and Setup
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -180,11 +180,11 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         continue
       }
       let uiImage = UIImage(cgImage: cgImage)
-//      tesseract?.image = uiImage
-//      tesseract?.recognize()
-      var text = ""//      guard var text = tesseract?.recognizedText else {
-//        continue
-//      }
+      tesseract?.image = uiImage
+      tesseract?.recognize()
+      guard var text = tesseract?.recognizedText else {
+        continue
+      }
       text = text.trimmingCharacters(in: CharacterSet.newlines)
       if !text.isEmpty {
         let x = xMin

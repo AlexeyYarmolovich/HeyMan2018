@@ -20,6 +20,7 @@
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
 		8AAD15AE20D5738300FE881E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD15AD20D5738200FE881E /* CoreImage.framework */; };
 		8AAD15B020D573E600FE881E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAD15AF20D573E600FE881E /* libstdc++.6.0.9.tbd */; };
+		8AE9949420D583A5002BADE8 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8AE9949320D583A4002BADE8 /* tessdata */; };
 		B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054C20D28B6C00144955 /* AppDelegate.swift */; };
 		B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054E20D28B6C00144955 /* CreateTripVC.swift */; };
 		B409055220D28B6C00144955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055020D28B6C00144955 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		8A9471AA20D55C1D00523485 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		8AAD15AD20D5738200FE881E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		8AAD15AF20D573E600FE881E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		8AE9949320D583A4002BADE8 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		B409054920D28B6C00144955 /* HeyMan2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyMan2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B409054C20D28B6C00144955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B409054E20D28B6C00144955 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripVC.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		B409054B20D28B6C00144955 /* HeyMan2018 */ = {
 			isa = PBXGroup;
 			children = (
+				8AE9949320D583A4002BADE8 /* tessdata */,
 				8A9471A420D5564000523485 /* CameraVC */,
 				11273FCB20D543C900C54F94 /* Model */,
 				11273FCE20D551A400C54F94 /* Utils */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B409055720D28B6D00144955 /* LaunchScreen.storyboard in Resources */,
+				8AE9949420D583A5002BADE8 /* tessdata in Resources */,
 				B409055420D28B6D00144955 /* Assets.xcassets in Resources */,
 				B409055220D28B6C00144955 /* Main.storyboard in Resources */,
 			);
