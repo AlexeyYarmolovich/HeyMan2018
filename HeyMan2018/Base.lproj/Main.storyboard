@@ -1,21 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create TripVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CreateTripVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ynl-7m-tqQ">
+                                <rect key="frame" x="20" y="130.5" width="335" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="6dO-7T-9oB"/>
+                                </constraints>
+                                <state key="normal" title="By car">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCn-Nu-cNz">
+                                <rect key="frame" x="20" y="330.5" width="335" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="LG7-JM-b9L"/>
+                                </constraints>
+                                <state key="normal" title="By flight">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-dX-LWh">
+                                <rect key="frame" x="117.5" y="84" width="141" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iCn-Nu-cNz" secondAttribute="trailing" constant="20" id="Ift-a9-5H8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ynl-7m-tqQ" secondAttribute="trailing" constant="20" id="QEQ-RV-ajX"/>
+                            <constraint firstItem="Ynl-7m-tqQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RAI-c9-2Wv"/>
+                            <constraint firstItem="iCn-Nu-cNz" firstAttribute="top" secondItem="Ynl-7m-tqQ" secondAttribute="bottom" constant="20" id="eqv-OS-7Cp"/>
+                            <constraint firstItem="Uf5-dX-LWh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f88-Mx-qoU"/>
+                            <constraint firstItem="Ynl-7m-tqQ" firstAttribute="top" secondItem="Uf5-dX-LWh" secondAttribute="bottom" constant="20" id="fsC-Cw-afj"/>
+                            <constraint firstItem="iCn-Nu-cNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hL3-W5-S3E"/>
+                            <constraint firstItem="Uf5-dX-LWh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="i1W-kd-lF7"/>
+                            <constraint firstItem="Ynl-7m-tqQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j9l-nH-g2b"/>
+                            <constraint firstItem="iCn-Nu-cNz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="p6u-dm-wKB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="carTripBtn" destination="Ynl-7m-tqQ" id="kw0-wj-LUI"/>
+                        <outlet property="flightTripBtn" destination="iCn-Nu-cNz" id="1kA-E2-AFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

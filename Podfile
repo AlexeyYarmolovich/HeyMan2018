@@ -6,5 +6,7 @@ target 'HeyMan2018' do
   use_frameworks!
 
   # Pods for HeyMan2018
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
 
 end
