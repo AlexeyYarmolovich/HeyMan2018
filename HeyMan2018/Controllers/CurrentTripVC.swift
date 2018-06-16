@@ -51,8 +51,8 @@ extension CurrentTripVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripItemCell", for: indexPath) as! TripItemCell
         
         cell.title.text = item.title
-        cell.price.text = item.price.formatted
-        cell.fee.text = item.fee.formatted
+        cell.price.text = item.price?.formatted
+        cell.fee.text = item.fee?.formatted
         
         return cell
     }

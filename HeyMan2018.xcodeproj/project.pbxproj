@@ -15,6 +15,11 @@
 		11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDA20D5640B00C54F94 /* PaymentMethod.swift */; };
 		11273FDD20D5649000C54F94 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDC20D5649000C54F94 /* Currency.swift */; };
 		11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */; };
+		11273FE120D57E7C00C54F94 /* SimpleKeyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FE020D57E7C00C54F94 /* SimpleKeyStorage.swift */; };
+		11273FE320D5815000C54F94 /* PaymentMethodStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FE220D5815000C54F94 /* PaymentMethodStorage.swift */; };
+		11273FE520D5857B00C54F94 /* ItemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FE420D5857B00C54F94 /* ItemStorage.swift */; };
+		11273FE720D5894100C54F94 /* TripsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FE620D5894100C54F94 /* TripsStorage.swift */; };
+		11273FEA20D58BA000C54F94 /* InputFieldPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FE920D58BA000C54F94 /* InputFieldPicker.swift */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -38,6 +43,11 @@
 		11273FDA20D5640B00C54F94 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
 		11273FDC20D5649000C54F94 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodVC.swift; sourceTree = "<group>"; };
+		11273FE020D57E7C00C54F94 /* SimpleKeyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeyStorage.swift; sourceTree = "<group>"; };
+		11273FE220D5815000C54F94 /* PaymentMethodStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodStorage.swift; sourceTree = "<group>"; };
+		11273FE420D5857B00C54F94 /* ItemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStorage.swift; sourceTree = "<group>"; };
+		11273FE620D5894100C54F94 /* TripsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsStorage.swift; sourceTree = "<group>"; };
+		11273FE920D58BA000C54F94 /* InputFieldPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldPicker.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -87,6 +97,8 @@
 		11273FCE20D551A400C54F94 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				11273FE820D58B6400C54F94 /* Storage */,
+				11273FE920D58BA000C54F94 /* InputFieldPicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -100,6 +112,17 @@
 				11273FDE20D565BB00C54F94 /* AddPaymentMethodVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		11273FE820D58B6400C54F94 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				11273FE020D57E7C00C54F94 /* SimpleKeyStorage.swift */,
+				11273FE220D5815000C54F94 /* PaymentMethodStorage.swift */,
+				11273FE420D5857B00C54F94 /* ItemStorage.swift */,
+				11273FE620D5894100C54F94 /* TripsStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		3F78F70879ED90AB94235FAC /* Pods */ = {
@@ -244,13 +267,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HeyMan2018/Pods-HeyMan2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AwesomeCache/AwesomeCache.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -286,12 +313,17 @@
 				11273FD120D5557000C54F94 /* CurrentTripVC.swift in Sources */,
 				11273FD520D55AB400C54F94 /* Money.swift in Sources */,
 				8A9471A620D557BA00523485 /* CameraView.swift in Sources */,
+				11273FEA20D58BA000C54F94 /* InputFieldPicker.swift in Sources */,
+				11273FE720D5894100C54F94 /* TripsStorage.swift in Sources */,
 				B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */,
 				11273FD720D55FD700C54F94 /* TripsListVC.swift in Sources */,
+				11273FE120D57E7C00C54F94 /* SimpleKeyStorage.swift in Sources */,
 				B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */,
 				11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */,
+				11273FE320D5815000C54F94 /* PaymentMethodStorage.swift in Sources */,
 				11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */,
 				11273FD920D560C400C54F94 /* Trip.swift in Sources */,
+				11273FE520D5857B00C54F94 /* ItemStorage.swift in Sources */,
 				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
 				8A9471A820D5586200523485 /* CameraVC.swift in Sources */,
 			);

@@ -7,8 +7,24 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-struct PaymentMethod {
+protocol JSONParsable {
+    init?(json: JSON)
+}
+
+extension JSONParsable {
+    static func parse(fromJson json: JSON?) -> Self? {
+        guard let json = json else { return nil }
+        return self.init(json: json)
+    }
+}
+
+protocol JSONConvertable {
+    func toJSON() -> [String: Any]
+}
+
+struct PaymentMethod: JSONParsable, JSONConvertable {
     var bank: Bank
     var type: PaymentType
     var currency: Currency
@@ -17,6 +33,21 @@ struct PaymentMethod {
         self.bank = bank
         self.type = type
         self.currency = currency
+    }
+    
+    init?(json: JSON) {
+        bank = Bank(rawValue: json["bank"].stringValue) ?? .mtb
+        type = PaymentType(rawValue: json["type"].stringValue) ?? .visa
+        currency = Currency(rawValue: json["currency"].stringValue) ?? .usd
+    }
+    
+    func toJSON() -> [String: Any] {
+        let dict: [String: Any] = [
+            "bank" : bank.rawValue,
+            "type" : type.rawValue,
+            "currency" : currency.rawValue
+        ]
+        return dict
     }
 }
 

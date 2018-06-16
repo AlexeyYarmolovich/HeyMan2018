@@ -8,5 +8,7 @@ target 'HeyMan2018' do
   # Pods for HeyMan2018
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'AwesomeCache', '~> 5.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

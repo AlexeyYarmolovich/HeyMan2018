@@ -6,9 +6,9 @@
 //  Copyright © 2018 HeyMan. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
-struct Money {
+struct Money: JSONParsable, JSONConvertable {
     var value: Double
     var currency: Currency
     
@@ -22,5 +22,18 @@ struct Money {
         case .usd, .eur: return String(format: "%.2f\(currency)", value)
         case .byn, .rub: return String(format: "\(currency)%.2f", value)
         }
+    }
+    
+    init?(json: JSON) {
+        value = json["value"].doubleValue
+        currency = Currency(rawValue: json["currency"].stringValue) ?? .usd
+    }
+    
+    func toJSON() -> [String: Any] {
+        let dict: [String: Any] = [
+            "value" : value,
+            "currency" : currency.rawValue
+        ]
+        return dict
     }
 }

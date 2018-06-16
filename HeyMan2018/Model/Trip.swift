@@ -6,12 +6,12 @@
 //  Copyright © 2018 HeyMan. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
-struct Trip {
+struct Trip: JSONParsable, JSONConvertable {
     var title: String
     var endDate: Date
-    var totalFee: Money
+    var totalFee: Money?
     
     init(_ title: String, _ endDate: Date, _ totalFee: Money) {
         self.title = title
@@ -23,5 +23,20 @@ struct Trip {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/mm/YYYY"
         return formatter.string(from: endDate)
+    }
+    
+    init?(json: JSON) {
+        title = json["title"].stringValue
+        endDate = Date(timeIntervalSince1970: json["endDate"].doubleValue)
+        totalFee = Money(json: json["totalFee"])
+    }
+    
+    func toJSON() -> [String: Any] {
+        let dict: [String: Any] = [
+            "title" : title,
+            "endDate" : endDate.timeIntervalSinceNow,
+            "totalFee" : totalFee?.toJSON() ?? []
+        ]
+        return dict
     }
 }

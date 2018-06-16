@@ -20,6 +20,8 @@ class AddPaymentMethodVC: UIViewController {
     private let bankPicker = InputFieldPicker(pickItems: Bank.all)
     private let currencyPicker = InputFieldPicker(pickItems: Currency.all)
     private let paymentTypePicker = InputFieldPicker(pickItems: PaymentType.all)
+    
+    private let storage = PaymentMethodStorage()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,37 +43,8 @@ class AddPaymentMethodVC: UIViewController {
     private func addPaymentMethod() {
         print("ADD PAYMENT METHOD AND COMPLETE")
         let method = PaymentMethod(bankPicker.selectedItem, paymentTypePicker.selectedItem, currencyPicker.selectedItem)
+        storage.add(newMethod: method)
+        
         view.endEditing(true)
-    }
-}
-
-protocol TitleRepresentable {
-    var title: String { get }
-}
-
-class InputFieldPicker<T: TitleRepresentable>: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    var pickItems = [T]()
-    var selectedItem: T {
-        return pickItems[selectedRow(inComponent: 0)]
-    }
-    
-    convenience init(pickItems: [T]) {
-        self.init()
-        self.delegate = self
-        self.dataSource = self
-        self.pickItems = pickItems
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickItems.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickItems[row].title
     }
 }
