@@ -23,8 +23,8 @@ struct Money: JSONParsable, JSONConvertable {
     
     var formatted: String {
         switch currency {
-        case .usd, .eur: return String(format: "%.2f\(currency)", value)
-        case .byn, .rub: return String(format: "\(currency)%.2f", value)
+        case .byn, .rub: return String(format: "%.0f\(currency.rawValue)", value)
+        case .usd, .eur: return String(format: "\(currency.rawValue)%.0f", value)
         }
     }
     

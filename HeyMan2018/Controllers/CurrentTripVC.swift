@@ -20,14 +20,29 @@ private let mockData: [TripItem] = [
 class CurrentTripVC: UIViewController {
     
     @IBOutlet weak var itemTable: UITableView!
+    @IBOutlet weak var settingsBtn: UIButton!
     
     private var items = [TripItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         itemTable.dataSource = self
-
+        itemTable.contentInset = UIEdgeInsetsMake(0, 0, 96, 0)
+        
+        configureBounceBackground()
         loadItems()
+    }
+    
+    private func configureBounceBackground() {
+        let bounceBackground = UIView(frame: itemTable.bounds.copyWith(y: -itemTable.bounds.height))
+        bounceBackground.backgroundColor = UIColor.main
+        bounceBackground.autoresizingMask = [.flexibleBottomMargin,
+                                             .flexibleHeight,
+                                             .flexibleLeftMargin,
+                                             .flexibleRightMargin,
+                                             .flexibleWidth,
+                                             .flexibleTopMargin]
+        itemTable.addSubview(bounceBackground)
     }
     
     private func loadItems() {
@@ -51,8 +66,7 @@ extension CurrentTripVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripItemCell", for: indexPath) as! TripItemCell
         
         cell.title.text = item.title
-        cell.price.text = item.price?.formatted
-        cell.fee.text = item.fee?.formatted
+        cell.price.text = item.fee?.formatted
         
         return cell
     }
@@ -62,6 +76,5 @@ class TripItemCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var fee: UILabel!
     
 }

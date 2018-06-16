@@ -24,6 +24,8 @@
 		11273FEE20D58D9400C54F94 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FED20D58D9400C54F94 /* UserStorage.swift */; };
 		11273FF720D5AD3700C54F94 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FF620D5AD3700C54F94 /* MainVC.swift */; };
 		11273FF920D5B38F00C54F94 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FF820D5B38F00C54F94 /* UIColorExt.swift */; };
+		11273FFD20D5BF7D00C54F94 /* ProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */; };
+		11273FFF20D5CD5200C54F94 /* CGRectExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFE20D5CD5200C54F94 /* CGRectExt.swift */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -56,6 +58,8 @@
 		11273FED20D58D9400C54F94 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		11273FF620D5AD3700C54F94 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		11273FF820D5B38F00C54F94 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressImageView.swift; sourceTree = "<group>"; };
+		11273FFE20D5CD5200C54F94 /* CGRectExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExt.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				11273FE920D58BA000C54F94 /* InputFieldPicker.swift */,
 				11273FED20D58D9400C54F94 /* UserStorage.swift */,
 				11273FF820D5B38F00C54F94 /* UIColorExt.swift */,
+				11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */,
+				11273FFE20D5CD5200C54F94 /* CGRectExt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				11273FEE20D58D9400C54F94 /* UserStorage.swift in Sources */,
 				11273FEC20D58D0600C54F94 /* Router.swift in Sources */,
 				11273FEA20D58BA000C54F94 /* InputFieldPicker.swift in Sources */,
+				11273FFF20D5CD5200C54F94 /* CGRectExt.swift in Sources */,
 				11273FF920D5B38F00C54F94 /* UIColorExt.swift in Sources */,
 				11273FE720D5894100C54F94 /* TripsStorage.swift in Sources */,
 				B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */,
@@ -342,6 +349,7 @@
 				11273FF720D5AD3700C54F94 /* MainVC.swift in Sources */,
 				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
 				8A9471A820D5586200523485 /* CameraVC.swift in Sources */,
+				11273FFD20D5BF7D00C54F94 /* ProgressImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
