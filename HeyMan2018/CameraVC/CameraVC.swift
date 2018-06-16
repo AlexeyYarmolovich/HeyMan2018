@@ -30,7 +30,7 @@ class CameraVC: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     tesseract?.pageSegmentationMode = .singleBlock
     // Recognize only these characters
-    tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890()-+*!/?.,@#$%&"
+    tesseract?.charWhitelist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890().,_-$€"
     if isAuthorized() {
       configureTextDetection()
       configureCamera()
@@ -76,17 +76,7 @@ class CameraVC: UIViewController {
     cameraView.videoPreviewLayer.videoGravity = .resize
     session.startRunning()
   }
-  
-  private func removeTextLayers() {
-    guard let sublayers = self.view.layer.sublayers else {
-      return
-    }
-    for layer in sublayers[1...] {
-      if (layer as? CATextLayer) == nil {
-        layer.removeFromSuperlayer()
-      }
-    }
-  }
+
   
   private func handleDetection(request: VNRequest, error: Error?) {
     
@@ -100,7 +90,12 @@ class CameraVC: UIViewController {
     if textResults.isEmpty {
       return
     }
-    textObservations = textResults as! [VNTextObservation]
+   textObservations = (textResults as! [VNTextObservation])
+      .map { (observation: $0, area: $0.boundingBox.size.area) }
+      .sorted(by: { $0.area > $1.area } )
+      .prefix(3)
+      .map { $0.observation }
+    print(textObservations.count)
     DispatchQueue.main.async { [weak self] in
       
       guard let `self` = self else { return }
@@ -109,18 +104,18 @@ class CameraVC: UIViewController {
       
       let viewWidth = self.view.frame.size.width
       let viewHeight = self.view.frame.size.height
-      
-      for result in textResults {
+//      print(textResults.count)
+      for result in self.textObservations {
         
-        if let textResult = result {
-          
-          self.placeTextLayer(for: textResult,viewWidth: viewWidth, viewHeight: viewHeight)
-        }
+//        if let textResult = result {
+        
+//          self.placeBorderLayer(for: result,viewWidth: viewWidth, viewHeight: viewHeight)
+//        }
       }
     }
   }
   
-  private func placeTextLayer(for textResult: VNTextObservation, viewWidth: CGFloat, viewHeight: CGFloat) {
+  private func placeBorderLayer(for textResult: VNTextObservation, viewWidth: CGFloat, viewHeight: CGFloat) {
     let layer = CALayer()
     var rect = textResult.boundingBox
     rect.origin.x *= viewWidth
@@ -129,9 +124,20 @@ class CameraVC: UIViewController {
     rect.size.width *= viewWidth
     
     layer.frame = rect
-    layer.borderWidth = 2
-    layer.borderColor = UIColor.red.cgColor
+//    layer.borderWidth = 2
+    layer.backgroundColor = UIColor.red.cgColor
     self.view.layer.addSublayer(layer)
+  }
+  
+  private func removeTextLayers() {
+    guard let sublayers = self.view.layer.sublayers else {
+      return
+    }
+    for layer in sublayers[1...] {
+      if (layer as? CATextLayer) == nil {
+        layer.removeFromSuperlayer()
+      }
+    }
   }
   
   private func isAuthorized() -> Bool {
@@ -178,7 +184,16 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
     ciImage = ciImage.transformed(by: transform)
     let size = ciImage.extent.size
     var recognizedTextPositionTuples = [(rect: CGRect, text: String)]()
-    for textObservation in textObservations {
+    let observationsToDisplay = textObservations
+      .map { (observation: $0, area: $0.boundingBox.size.area) }
+      .sorted(by: { $0.area > $1.area } )
+      .prefix(3)
+//      .prefix(upTo: 3)
+      .map { $0.observation }
+    
+    
+    
+    for textObservation in observationsToDisplay {
       guard let rects = textObservation.characterBoxes else {
         continue
       }
@@ -213,6 +228,8 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
         recognizedTextPositionTuples.append((rect: CGRect(x: x, y: y, width: width, height: height), text: text))
       }
     }
+    
+    //clear old
     textObservations.removeAll()
     DispatchQueue.main.async {
       let viewWidth = self.view.frame.size.width
@@ -226,9 +243,10 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
           layer.removeFromSuperlayer()
         }
       }
+      //add new
       for tuple in recognizedTextPositionTuples {
         let textLayer = CATextLayer()
-        textLayer.backgroundColor = UIColor.clear.cgColor
+        textLayer.backgroundColor = UIColor.red.cgColor
         textLayer.font = self.font
         var rect = tuple.rect
         
@@ -247,5 +265,11 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
         self.view.layer.addSublayer(textLayer)
       }
     }
+  }
+}
+
+extension CGSize {
+  var area: CGFloat {
+    return width * height
   }
 }
