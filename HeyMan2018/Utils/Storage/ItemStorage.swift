@@ -36,7 +36,7 @@ class ItemStorage {
     }
     
     public func add(newItem item: TripItem) {
-        paymentMethods.value.append(method)
+        items.value.append(item)
         save(items.value)
     }
     

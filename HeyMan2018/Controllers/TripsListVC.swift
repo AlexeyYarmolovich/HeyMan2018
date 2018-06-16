@@ -9,9 +9,9 @@
 import UIKit
 
 private let mockData: [Trip] = [
-    Trip("Trip 1", Date(), Money(100.0, .usd)),
-    Trip("Trip 1", Date(), Money(100.0, .usd)),
-    Trip("Trip 1", Date(), Money(100.0, .usd))
+    Trip("Trip 1", Date(), Money(100.0, .usd), .car),
+    Trip("Trip 1", Date(), Money(100.0, .usd), .flight),
+    Trip("Trip 1", Date(), Money(100.0, .usd), .car)
 ]
 
 class TripsListVC: UIViewController {
@@ -49,7 +49,7 @@ extension TripsListVC: UITableViewDataSource {
         
         cell.title.text = trip.title
         cell.subtitle.text = trip.formattedDate
-        cell.totalFee.text = trip.totalFee.formatted
+        cell.totalFee.text = trip.totalFee?.formatted
         
         return cell
     }

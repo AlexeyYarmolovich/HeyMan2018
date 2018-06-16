@@ -12,6 +12,10 @@ struct Money: JSONParsable, JSONConvertable {
     var value: Double
     var currency: Currency
     
+    static var zero: Money {
+        return Money(0, .usd)
+    }
+    
     init(_ value: Double, _ currency: Currency) {
         self.value = value
         self.currency = currency

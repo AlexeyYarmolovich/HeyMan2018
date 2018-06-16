@@ -15,6 +15,7 @@ class CreateTripVC: UIViewController {
     @IBOutlet weak var carTripBtn: UIButton!
     @IBOutlet weak var flightTripBtn: UIButton!
     
+    private let storage = TripsStorage()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -30,10 +31,9 @@ class CreateTripVC: UIViewController {
     }
     
     private func navigateToTripsList(type: TripType) {
+        let trip = Trip("", Date(), Money.zero, type)
+        storage.add(newTrip: trip)
+        Router.shared.navigateToMain()
         print("CREATE TRIP: \(type)")
     }
-}
-
-enum TripType {
-    case car, flight
 }
