@@ -79,6 +79,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8A9471A420D5564000523485 /* CameraVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CameraVC;
+			sourceTree = "<group>";
+		};
 		B409054020D28B6C00144955 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +107,7 @@
 		B409054B20D28B6C00144955 /* HeyMan2018 */ = {
 			isa = PBXGroup;
 			children = (
+				8A9471A420D5564000523485 /* CameraVC */,
 				11273FCB20D543C900C54F94 /* Model */,
 				11273FCE20D551A400C54F94 /* Utils */,
 				11273FCF20D551B300C54F94 /* Controllers */,
