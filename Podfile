@@ -10,5 +10,6 @@ target 'HeyMan2018' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'AwesomeCache', '~> 5.0'
   pod 'SwiftyJSON', '~> 4.0'
+pod 'SVProgressHUD'
 
 end

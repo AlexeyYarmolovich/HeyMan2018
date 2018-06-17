@@ -10,7 +10,7 @@ import Foundation
 
 class MainVC: UIPageViewController {
     
-    fileprivate lazy var pages: [UIViewController] = {
+     lazy var pages: [UIViewController] = {
         return [
             Router.shared.cameraVC,
             Router.shared.currentTripVC

@@ -13,6 +13,7 @@ import Vision
 import RxSwift
 import RxCocoa
 
+
 class PlateModel {
   
 }
@@ -22,7 +23,6 @@ class Plate: CALayer {
   var textLayer: CATextLayer
   
   func setModel(_ model: PlateModel) {
-    
     
   }
   
@@ -76,6 +76,14 @@ class CameraVC: UIViewController {
     let priceMoney = Money(exchanged, Currency.eur)
     
     ItemStorage.shared.add(newItem: TripItem(title, priceMoney, priceMoney))
+    
+    SVProgressHUD.setDefaultStyle(.dark)
+    SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+    SVProgressHUD.showSuccess(withStatus: "Item successfully added")
+//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+      let parent = self.parent as! MainVC
+      parent.setViewControllers([parent.pages[1]], direction: .forward, animated: true, completion: nil)
+//    }
     
 //    UIAlertView.
   }
