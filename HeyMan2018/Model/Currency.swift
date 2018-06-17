@@ -8,9 +8,10 @@
 
 import Foundation
 
+
 enum Currency: String, TitleRepresentable {
-    case usd = "$"
-    case eur = "€"
+    case usd = "USD"
+    case eur = "EUR"
     case byn = "BYN"
     case rub = "RUB"
     

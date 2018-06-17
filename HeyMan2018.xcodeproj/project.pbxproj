@@ -28,6 +28,8 @@
 		11273FFF20D5CD5200C54F94 /* CGRectExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFE20D5CD5200C54F94 /* CGRectExt.swift */; };
 		1127400320D5DFFD00C54F94 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400220D5DFFD00C54F94 /* UIUtils.swift */; };
 		1127400720D5EC0B00C54F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1127400620D5EC0B00C54F94 /* Assets.xcassets */; };
+		1127400920D5F73000C54F94 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400820D5F73000C54F94 /* Exchange.swift */; };
+		1127400B20D5F8A000C54F94 /* ExchangeCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400A20D5F8A000C54F94 /* ExchangeCurrency.swift */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -63,6 +65,8 @@
 		11273FFE20D5CD5200C54F94 /* CGRectExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExt.swift; sourceTree = "<group>"; };
 		1127400220D5DFFD00C54F94 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		1127400620D5EC0B00C54F94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1127400820D5F73000C54F94 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		1127400A20D5F8A000C54F94 /* ExchangeCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCurrency.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				11273FD420D55AB400C54F94 /* Money.swift */,
 				11273FDA20D5640B00C54F94 /* PaymentMethod.swift */,
 				11273FDC20D5649000C54F94 /* Currency.swift */,
+				1127400820D5F73000C54F94 /* Exchange.swift */,
+				1127400A20D5F8A000C54F94 /* ExchangeCurrency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,10 +354,12 @@
 				1127400320D5DFFD00C54F94 /* UIUtils.swift in Sources */,
 				11273FE320D5815000C54F94 /* PaymentMethodStorage.swift in Sources */,
 				11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */,
+				1127400920D5F73000C54F94 /* Exchange.swift in Sources */,
 				11273FD920D560C400C54F94 /* Trip.swift in Sources */,
 				11273FE520D5857B00C54F94 /* ItemStorage.swift in Sources */,
 				11273FF720D5AD3700C54F94 /* MainVC.swift in Sources */,
 				11273FD320D55A4D00C54F94 /* TripItem.swift in Sources */,
+				1127400B20D5F8A000C54F94 /* ExchangeCurrency.swift in Sources */,
 				8A9471A820D5586200523485 /* CameraVC.swift in Sources */,
 				11273FFD20D5BF7D00C54F94 /* ProgressImageView.swift in Sources */,
 			);
