@@ -44,6 +44,7 @@ class Plate: CALayer {
 class CameraVC: UIViewController {
   
   @IBOutlet weak var priceLabel: UILabel!
+  @IBOutlet weak var euroLbl: UILabel!
   
   let price = PublishSubject<CGFloat>()
   
@@ -63,11 +64,15 @@ class CameraVC: UIViewController {
   override func viewDidLoad() {
     
     super.viewDidLoad()
-    let a: Driver<String> = price
+    _ = price
       .asSharedSequence(onErrorJustReturn: -1)
-      .map { String(format: "%.0f", $0) }
+      .map { String(format: "%.0f PLN", $0) }
+      .drive(priceLabel.rx.text)
     
-    _ = a.drive(priceLabel.rx.text)
+    _ = price
+      .asSharedSequence(onErrorJustReturn: -1)
+      .map { String(format: "%.0f EUR", $0*2) }
+      .drive(euroLbl.rx.text)
 //      .subscribe()
     
 //      .drive(to: priceLabel.rx.text)
