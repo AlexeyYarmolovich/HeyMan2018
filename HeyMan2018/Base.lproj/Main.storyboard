@@ -396,7 +396,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(+33)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmB-mi-OaQ">
                                             <rect key="frame" x="230" y="163.5" width="36.5" height="16"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                            <color key="textColor" red="0.91921168565750122" green="0.70414563061664015" blue="0.41807816467590592" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="0.91921168565750122" green="0.89956330700249421" blue="0.25554137890895112" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -458,6 +458,15 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgP-ed-Moh">
+                                                    <rect key="frame" x="296" y="20.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="OCz-xd-kf0"/>
+                                                        <constraint firstAttribute="width" constant="40" id="hHk-Rn-4ds"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.9192116857" green="0.38973976440000002" blue="0.37652722230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="trash"/>
+                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TfF-Va-Vlx">
                                                     <rect key="frame" x="20" y="79" width="335" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -470,14 +479,17 @@
                                                 <constraint firstItem="U2y-NI-Avk" firstAttribute="leading" secondItem="EkS-L1-mrW" secondAttribute="trailing" constant="20" id="5uq-SU-8gx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="U2y-NI-Avk" secondAttribute="trailing" constant="20" id="7nM-56-G6r"/>
                                                 <constraint firstAttribute="trailing" secondItem="TfF-Va-Vlx" secondAttribute="trailing" constant="20" id="GOo-Bc-rWy"/>
+                                                <constraint firstItem="lgP-ed-Moh" firstAttribute="centerY" secondItem="uGR-2L-JLQ" secondAttribute="centerY" id="OzA-15-mQl"/>
                                                 <constraint firstItem="EkS-L1-mrW" firstAttribute="centerY" secondItem="uGR-2L-JLQ" secondAttribute="centerY" id="Sn9-oo-Loy"/>
                                                 <constraint firstItem="EkS-L1-mrW" firstAttribute="leading" secondItem="uGR-2L-JLQ" secondAttribute="leading" constant="20" id="ebN-WL-6ka"/>
                                                 <constraint firstAttribute="bottom" secondItem="TfF-Va-Vlx" secondAttribute="bottom" id="nEC-m8-8JC"/>
                                                 <constraint firstItem="U2y-NI-Avk" firstAttribute="centerY" secondItem="uGR-2L-JLQ" secondAttribute="centerY" id="s0h-l3-vk7"/>
                                                 <constraint firstItem="TfF-Va-Vlx" firstAttribute="leading" secondItem="uGR-2L-JLQ" secondAttribute="leading" constant="20" id="tKJ-BN-SYi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lgP-ed-Moh" secondAttribute="trailing" constant="24" id="twl-oC-aoK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="deleteBtn" destination="lgP-ed-Moh" id="ZK4-hv-MsB"/>
                                             <outlet property="price" destination="EkS-L1-mrW" id="s07-8Z-AmR"/>
                                             <outlet property="title" destination="Z5t-Ya-tGb" id="Qff-tv-VaK"/>
                                         </connections>
@@ -792,5 +804,6 @@
         <image name="map" width="1050" height="656"/>
         <image name="plain" width="260" height="253"/>
         <image name="settings" width="25" height="25"/>
+        <image name="trash" width="25" height="25"/>
     </resources>
 </document>

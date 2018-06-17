@@ -45,6 +45,11 @@ class ItemStorage {
         save(items.value)
     }
     
+    public func deleteItemAt(_ index: Int) {
+        items.value.remove(at: index)
+        save(items.value)
+    }
+    
     private func save(_ methods: [TripItem]) {
         let json = JSON(methods.map { JSON($0.toJSON()) })
         do {

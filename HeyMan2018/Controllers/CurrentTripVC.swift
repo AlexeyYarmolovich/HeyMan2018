@@ -102,10 +102,20 @@ extension CurrentTripVC: UITableViewDataSource {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripItemCell", for: indexPath) as! TripItemCell
         
+        cell.disposable?.dispose()
         cell.title.text = item.title
         cell.price.text = item.fee?.formatted
-        
+        cell.disposable = cell.deleteBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [unowned self] in
+                self.removeItem(at: indexPath.row)
+            })
+
         return cell
+    }
+    
+    private func removeItem(at index: Int) {
+        ItemStorage.shared.deleteItemAt(index)
     }
 }
 
@@ -113,5 +123,10 @@ class TripItemCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
+    
+    var disposable: Disposable?
+    
+    
     
 }
