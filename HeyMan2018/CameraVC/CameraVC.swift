@@ -23,6 +23,7 @@ class Plate: CALayer {
   
   func setModel(_ model: PlateModel) {
     
+    
   }
   
   override init() {
@@ -44,6 +45,8 @@ class CameraVC: UIViewController {
   
   @IBOutlet weak var priceLabel: UILabel!
   
+  let price = PublishSubject<CGFloat>()
+  
   var foundPriceText: String = ""
   
   private var textDetectionRequest: VNDetectTextRectanglesRequest?
@@ -58,8 +61,18 @@ class CameraVC: UIViewController {
   
   
   override func viewDidLoad() {
+    
     super.viewDidLoad()
-    Magic.setLabel(priceLabel)
+    let a: Driver<String> = price
+      .asSharedSequence(onErrorJustReturn: -1)
+      .map { String(format: "%.0f", $0) }
+    
+    _ = a.drive(priceLabel.rx.text)
+//      .subscribe()
+    
+//      .drive(to: priceLabel.rx.text)
+    
+    Magic.setLabel(price)
     // Do any additional setup after loading the view, typically from a nib.
     tesseract?.pageSegmentationMode = .singleBlock
     // Recognize only these characters
@@ -311,7 +324,9 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
     let resultStrin = st.filter { (ch) -> Bool in
       myChars.contains(ch)
     }
-    Magic.emmitedString(resultStrin)
+    if !resultStrin.isEmpty {
+      Magic.emmitedString(resultStrin)
+    }
 //    guard myCharSet.isSuperset(of: CharacterSet(charactersIn: text)) else { return }
     
 //      DispatchQueue.main.async {
@@ -324,9 +339,9 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 class Magic {
   static var base: [String: [TimeInterval]] = [:]
-  static var label: UILabel!
+  static var label: PublishSubject<CGFloat>!
   
-  static func setLabel(_ label: UILabel) {
+  static func setLabel(_ label: PublishSubject<CGFloat>) {
     self.label = label
 
   }
@@ -344,10 +359,12 @@ class Magic {
       base[string]?.append(now)
     } else {
       if now - intervals.first! < 4 {
-        DispatchQueue.main.async {
-          
-          label.text = string
-        }
+        let flot = (string as NSString).floatValue
+        label.onNext(CGFloat(flot))
+//        DispatchQueue.main.async {
+//
+//          label.text = string
+//        }
       }
         base[string]!.remove(at: 0)
         base[string]!.append(now)
