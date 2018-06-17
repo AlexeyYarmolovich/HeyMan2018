@@ -26,6 +26,7 @@
 		11273FF920D5B38F00C54F94 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FF820D5B38F00C54F94 /* UIColorExt.swift */; };
 		11273FFD20D5BF7D00C54F94 /* ProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */; };
 		11273FFF20D5CD5200C54F94 /* CGRectExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFE20D5CD5200C54F94 /* CGRectExt.swift */; };
+		1127400320D5DFFD00C54F94 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400220D5DFFD00C54F94 /* UIUtils.swift */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -60,6 +61,7 @@
 		11273FF820D5B38F00C54F94 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressImageView.swift; sourceTree = "<group>"; };
 		11273FFE20D5CD5200C54F94 /* CGRectExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExt.swift; sourceTree = "<group>"; };
+		1127400220D5DFFD00C54F94 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				11273FF820D5B38F00C54F94 /* UIColorExt.swift */,
 				11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */,
 				11273FFE20D5CD5200C54F94 /* CGRectExt.swift */,
+				1127400220D5DFFD00C54F94 /* UIUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				11273FE120D57E7C00C54F94 /* SimpleKeyStorage.swift in Sources */,
 				B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */,
 				11273FDB20D5640B00C54F94 /* PaymentMethod.swift in Sources */,
+				1127400320D5DFFD00C54F94 /* UIUtils.swift in Sources */,
 				11273FE320D5815000C54F94 /* PaymentMethodStorage.swift in Sources */,
 				11273FDF20D565BB00C54F94 /* AddPaymentMethodVC.swift in Sources */,
 				11273FD920D560C400C54F94 /* Trip.swift in Sources */,
