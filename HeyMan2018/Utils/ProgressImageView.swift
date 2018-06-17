@@ -37,7 +37,8 @@ class ProgressImageView: UIImageView {
     }
     
     private func initLayer() {
-        arcLayer.strokeColor = UIColor(red: 255/255, green: 170/255, blue: 8/255, alpha: 1).cgColor
+//        arcLayer.strokeColor = UIColor(red: 255/255, green: 170/255, blue: 8/255, alpha: 1).cgColor
+        arcLayer.strokeColor = #colorLiteral(red: 0.3333333731, green: 0.7882352471, blue: 0.250980407, alpha: 1).cgColor
         arcLayer.fillColor = UIColor.clear.cgColor
         arcLayer.lineWidth = lineWidth
         arcLayer.frame = bounds
@@ -52,6 +53,6 @@ class ProgressImageView: UIImageView {
     }
     
     private func configLayer() {
-        arcLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: frame.width / 2), radius: frame.width / 2 , startAngle: -CGFloat(Double.pi / 2), endAngle: ratio * CGFloat(Double.pi) , clockwise: true).cgPath
+        arcLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: frame.width / 2), radius: frame.width / 2 , startAngle: -CGFloat(Double.pi / 2), endAngle: ratio * CGFloat(Double.pi) * 3 / 2 - CGFloat(Double.pi / 2), clockwise: true).cgPath
     }
 }

@@ -14,7 +14,7 @@ private let storageKey = "Items"
 class ItemStorage {
   
   static let shared: ItemStorage = {
-    ItemStorage(tripId: "\(TripsStorage.shared.lastTrip!.id)")
+    ItemStorage(tripId: "items_store")
   }()
     
     lazy var items: Variable<[TripItem]> = {
@@ -35,8 +35,9 @@ class ItemStorage {
         self.tripId = tripId
     }
     
-    static func clearAll() {
-        SimpleKeyStorage<NSData>(name: storageKey).clearAll()
+    func clearAll() {
+        items.value.removeAll()
+        save(items.value)
     }
     
     public func add(newItem item: TripItem) {

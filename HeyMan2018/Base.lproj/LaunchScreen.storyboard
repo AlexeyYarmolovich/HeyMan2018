@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Rx-VS-6aY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -26,7 +26,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Rx-VS-6aY" secondAttribute="bottom" id="Qgc-5J-cgE"/>
                             <constraint firstItem="7Rx-VS-6aY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rqg-2s-lH7"/>
                             <constraint firstAttribute="trailing" secondItem="7Rx-VS-6aY" secondAttribute="trailing" id="hLv-qP-7p7"/>
-                            <constraint firstItem="7Rx-VS-6aY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xVz-7c-Czv"/>
+                            <constraint firstItem="7Rx-VS-6aY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-1" id="xVz-7c-Czv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

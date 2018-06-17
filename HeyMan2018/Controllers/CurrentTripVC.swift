@@ -26,6 +26,7 @@ class CurrentTripVC: UIViewController {
     @IBOutlet weak var limitLabel: UILabel!
     @IBOutlet weak var endBtn: UIButton!
     @IBOutlet weak var progressImageView: ProgressImageView!
+    @IBOutlet weak var overLabel: UILabel!
     
     private let disposeBag = DisposeBag()
     private var items = [TripItem]()
@@ -40,19 +41,20 @@ class CurrentTripVC: UIViewController {
         super.viewDidLoad()
         itemTable.dataSource = self
         itemTable.contentInset = UIEdgeInsetsMake(0, 0, 96, 0)
-      
-      _ = ItemStorage.shared.items.asDriver().drive(onNext: { itemsArr in
-        self.items = itemsArr
-        self.itemTable.reloadData()
-      })
+        
+        ItemStorage.shared.items.asDriver()
+            .drive(onNext: { itemsArr in
+                self.loadItems(items: itemsArr)
+            })
+            .disposed(by: disposeBag)
         
         configureBounceBackground()
-        loadItems()
         
         endBtn.rx.tap
             .asDriver()
             .drive(onNext: { [unowned self] in
-                UserStorage.shared.set(lastTotal: self.totalCustoms)
+                UserStorage.shared.set(lastTotal: 0)
+                ItemStorage.shared.clearAll()
                 Router.shared.navigateToNewTrip()
             })
             .disposed(by: disposeBag)
@@ -70,9 +72,16 @@ class CurrentTripVC: UIViewController {
         itemTable.addSubview(bounceBackground)
     }
     
-    private func loadItems() {
-//        items = mockData
+    private func loadItems(items: [TripItem]) {
+        self.items = items
+        
         limitLabel.text = String(format: "€%.0f/300", totalCustoms)
+        if (totalCustoms > 300) {
+            overLabel.isHidden = false
+            overLabel.text = String(format: "(+€%.0f)", (totalCustoms - 300) / 2 + 5)
+        } else {
+            overLabel.isHidden = true
+        }
         progressImageView.ratio = CGFloat(totalCustoms / 300.0)
         
         itemTable.reloadData()
