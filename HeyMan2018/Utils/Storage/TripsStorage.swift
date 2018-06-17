@@ -12,6 +12,12 @@ import SwiftyJSON
 private let storageKey = "Items"
 
 class TripsStorage {
+  
+  static let shared = TripsStorage()
+  
+  var lastTrip: Trip? {
+    return trips.value.last
+  }
     
     lazy var trips: Variable<[Trip]> = {
         return Variable<[Trip]>(self.load())

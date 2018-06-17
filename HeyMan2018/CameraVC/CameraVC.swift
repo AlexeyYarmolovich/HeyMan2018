@@ -46,8 +46,9 @@ class CameraVC: UIViewController {
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var euroLbl: UILabel!
   @IBOutlet weak var nameLbl: UILabel!
+  @IBOutlet weak var addBtn: UIButton!
   
-  let price = PublishSubject<CGFloat>()
+  let price = Variable<CGFloat>(-1)
   
   let name = PublishSubject<String>()
   
@@ -63,17 +64,24 @@ class CameraVC: UIViewController {
     return view.subviews.first { $0 is CameraView } as! CameraView
   }()
   
+  @IBAction func addTap(_ sender: Any) {
+    let title = nameLbl.text ?? ""
+//    Money.init(4, Currency.rub)
+    let priceMoney = Money(Double(price.value), Currency.rub)
+    ItemStorage.shared.add(newItem: TripItem(title, priceMoney, priceMoney))
+  }
   
   override func viewDidLoad() {
     
     super.viewDidLoad()
-    _ = price
-      .asSharedSequence(onErrorJustReturn: -1)
+    _ = price.asDriver()
+//      .asSharedSequence(onErrorJustReturn: -1)
       .map { String(format: "%.0f PLN", $0) }
       .drive(priceLabel.rx.text)
     
-    _ = price
-      .asSharedSequence(onErrorJustReturn: -1)
+    _ = price.asDriver()
+      
+//      .asSharedSequence(onErrorJustReturn: -1)
       .map { String(format: "%.0f EUR", $0*2) }
       .drive(euroLbl.rx.text)
     
@@ -357,9 +365,9 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 class Magic {
   static var base: [String: [TimeInterval]] = [:]
-  static var label: PublishSubject<CGFloat>!
+  static var label: Variable<CGFloat>!
   
-  static func setLabel(_ label: PublishSubject<CGFloat>) {
+  static func setLabel(_ label: Variable<CGFloat>) {
     self.label = label
 
   }
@@ -378,7 +386,9 @@ class Magic {
     } else {
       if now - intervals.first! < 4 {
         let flot = (string as NSString).floatValue
-        label.onNext(CGFloat(flot))
+        label.value = CGFloat(flot)
+//        label.onNext(CGFloat(flot))
+        
 //        DispatchQueue.main.async {
 //
 //          label.text = string

@@ -202,9 +202,12 @@
                                         <integer key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTap:" destination="tMG-st-uK8" eventType="touchUpInside" id="CyE-tG-KnE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdj-lE-NpU">
-                                <rect key="frame" x="187.5" y="577" width="0.0" height="0.0"/>
+                                <rect key="frame" x="16" y="577" width="343" height="0.0"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -247,6 +250,7 @@
                         <constraints>
                             <constraint firstItem="5Xh-1s-VvK" firstAttribute="bottom" secondItem="cxi-0Z-Y2v" secondAttribute="bottom" constant="20" id="4v9-Ta-5HN"/>
                             <constraint firstItem="Tud-Vc-G77" firstAttribute="top" secondItem="f8x-w5-WZV" secondAttribute="top" constant="460" id="6Vx-TI-BgY"/>
+                            <constraint firstItem="tdj-lE-NpU" firstAttribute="leading" secondItem="f8x-w5-WZV" secondAttribute="leading" constant="16" id="Aml-YY-UxP"/>
                             <constraint firstItem="Vs1-fB-n3A" firstAttribute="top" secondItem="f8x-w5-WZV" secondAttribute="top" id="LAu-ZA-09f"/>
                             <constraint firstItem="cxi-0Z-Y2v" firstAttribute="leading" secondItem="5Xh-1s-VvK" secondAttribute="leading" constant="40" id="Reb-SH-HNU"/>
                             <constraint firstItem="5Xh-1s-VvK" firstAttribute="bottom" secondItem="Vs1-fB-n3A" secondAttribute="bottom" id="aBd-I3-4hn"/>
@@ -260,6 +264,7 @@
                         <viewLayoutGuide key="safeArea" id="5Xh-1s-VvK"/>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="cxi-0Z-Y2v" id="TQO-o0-P1B"/>
                         <outlet property="euroLbl" destination="bvu-II-edV" id="dHT-Wt-JZy"/>
                         <outlet property="nameLbl" destination="tdj-lE-NpU" id="LWt-Ml-Iay"/>
                         <outlet property="priceLabel" destination="VR7-gC-kof" id="7dZ-RF-3tq"/>

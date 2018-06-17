@@ -52,6 +52,11 @@ class ProgressImageView: UIImageView {
     }
     
     private func configLayer() {
-        arcLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: frame.width / 2), radius: frame.width / 2 , startAngle: -CGFloat(Double.pi / 2), endAngle: ratio * CGFloat(Double.pi) * 3 / 2, clockwise: true).cgPath
+        arcLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: frame.width / 2),
+                                     radius: frame.width / 2 ,
+                                     startAngle: -CGFloat(Double.pi / 2),
+                                     endAngle: ratio * CGFloat(Double.pi) * 3 / 2,
+                                     clockwise: true)
+          .cgPath
     }
 }
