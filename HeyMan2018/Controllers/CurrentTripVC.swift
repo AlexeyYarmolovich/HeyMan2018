@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-private let mockData: [TripItem] = [
-    TripItem("Item1", Money(10.0, .usd), Money(3.0, .eur)),
-    TripItem("Item1", Money(15.0, .usd), Money(5.0, .eur)),
-    TripItem("Item1", Money(110.0, .usd), Money(33.0, .eur)),
-    TripItem("Item1", Money(230.0, .usd), Money(83.0, .eur)),
-    TripItem("Item1", Money(120.0, .usd), Money(40.0, .eur)),
-    TripItem("Item1", Money(37.0, .usd), Money(12.0, .eur))
-]
+//private let mockData: [TripItem] = [
+//    TripItem("Item1", Money(10.0, .usd), Money(3.0, .eur)),
+//    TripItem("Item1", Money(15.0, .usd), Money(5.0, .eur)),
+//    TripItem("Item1", Money(110.0, .usd), Money(33.0, .eur)),
+//    TripItem("Item1", Money(230.0, .usd), Money(83.0, .eur)),
+//    TripItem("Item1", Money(120.0, .usd), Money(40.0, .eur)),
+//    TripItem("Item1", Money(37.0, .usd), Money(12.0, .eur))
+//]
 
 class CurrentTripVC: UIViewController {
     
@@ -40,6 +40,11 @@ class CurrentTripVC: UIViewController {
         super.viewDidLoad()
         itemTable.dataSource = self
         itemTable.contentInset = UIEdgeInsetsMake(0, 0, 96, 0)
+      
+      _ = ItemStorage.shared.items.asDriver().drive(onNext: { itemsArr in
+        self.items = itemsArr
+        self.itemTable.reloadData()
+      })
         
         configureBounceBackground()
         loadItems()
@@ -66,7 +71,7 @@ class CurrentTripVC: UIViewController {
     }
     
     private func loadItems() {
-        items = mockData
+//        items = mockData
         limitLabel.text = String(format: "€%.0f/300", totalCustoms)
         progressImageView.ratio = CGFloat(totalCustoms / 300.0)
         

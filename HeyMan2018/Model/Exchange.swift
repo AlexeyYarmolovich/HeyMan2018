@@ -9,8 +9,7 @@
 import SwiftyJSON
 
 let mtbankRates = """
-{
-    "exchange": [
+[
     {
     "rate": "2.0020",
     "abbreviation": "USD"
@@ -41,7 +40,7 @@ let mtbankRates = """
     },
     {
     "abbreviation": "PLN",
-    "rate": 5.4257
+    "rate": 0.54257
     },
     {
     "abbreviation": "IRR",
@@ -116,12 +115,10 @@ let mtbankRates = """
     "rate": 2.0066
     }
     ]
-}
 """
 
 let priorRates = """
-{
-"exchange": [
+[
 {
 "abbreviation": "USD",
 "rate": "2,011"
@@ -152,7 +149,7 @@ let priorRates = """
 },
 {
 "abbreviation": "PLN",
-"rate": 5.4257
+"rate": 0.54257
 },
 {
 "abbreviation": "IRR",
@@ -227,7 +224,6 @@ let priorRates = """
 "rate": 2.0066
 }
 ]
-}
 """
 
 class Exchange {
@@ -263,13 +259,14 @@ class Exchange {
     }
     
     static func exchange(amount: Double, fromCurrency: ExchangeCurrency, toCurrency: ExchangeCurrency) -> Double {
-        return amount * fromCurrency.rate / toCurrency.rate
+      return amount * fromCurrency.rate / toCurrency.rate
     }
     
     static func getExchangeCurrency(bank: Bank, currency: Currency) -> ExchangeCurrency? {
         switch bank {
         case .mtb:
             guard let json = try? JSON(data: mtbankRates.data(using: .utf8)!) else { return nil }
+            json.arrayValue.map { ExchangeCurrency(json: $0) }
             return json.arrayValue.map { ExchangeCurrency(json: $0) }.filter { $0 != nil }.map { $0! }.first { $0.currency == currency }
         case .prior:
             guard let json = try? JSON(data: priorRates.data(using: .utf8)!) else { return nil }

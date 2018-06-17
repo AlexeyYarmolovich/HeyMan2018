@@ -14,6 +14,7 @@ enum Currency: String, TitleRepresentable {
     case eur = "EUR"
     case byn = "BYN"
     case rub = "RUB"
+    case pln = "PLN"
     
     static var all: [Currency] {
         return [.usd, .eur, .byn, .rub]
@@ -25,6 +26,7 @@ enum Currency: String, TitleRepresentable {
         case .eur: return "EUR"
         case .byn: return "BYN"
         case .rub: return "RUB"
+        case .pln: return "PLN"
         }
     }
 }

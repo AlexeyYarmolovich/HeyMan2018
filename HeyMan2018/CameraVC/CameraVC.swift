@@ -64,11 +64,20 @@ class CameraVC: UIViewController {
     return view.subviews.first { $0 is CameraView } as! CameraView
   }()
   
+  let usdPaymentMethod = PaymentMethod(.mtb, .master, .usd)
+  let eurPaymentMethod = PaymentMethod(.mtb, .master, .eur)
+  let fromCurrency = Exchange.getExchangeCurrency(bank: .mtb, currency: Currency.pln)!
+  
   @IBAction func addTap(_ sender: Any) {
     let title = nameLbl.text ?? ""
-//    Money.init(4, Currency.rub)
-    let priceMoney = Money(Double(price.value), Currency.rub)
+
+    let value = Double(price.value)
+    let exchanged = Exchange.exchange(amount: value, paymentMethod: eurPaymentMethod, fromCurrency: self.fromCurrency)
+    let priceMoney = Money(exchanged, Currency.eur)
+    
     ItemStorage.shared.add(newItem: TripItem(title, priceMoney, priceMoney))
+    
+//    UIAlertView.
   }
   
   override func viewDidLoad() {
@@ -76,13 +85,15 @@ class CameraVC: UIViewController {
     super.viewDidLoad()
     _ = price.asDriver()
 //      .asSharedSequence(onErrorJustReturn: -1)
-      .map { String(format: "%.0f PLN", $0) }
+      .map { $0 < 0 ? 0 : $0 }
+      .map { String(format: "%.2f USD", Exchange.exchange(amount: Double($0), paymentMethod: self.eurPaymentMethod, fromCurrency: self.fromCurrency) * 0.86144) }
       .drive(priceLabel.rx.text)
     
     _ = price.asDriver()
       
 //      .asSharedSequence(onErrorJustReturn: -1)
-      .map { String(format: "%.0f EUR", $0*2) }
+      .map { $0 < 0 ? 0 : $0 }
+      .map { String(format: "%.2f EUR", Exchange.exchange(amount: Double($0), paymentMethod: self.eurPaymentMethod, fromCurrency: self.fromCurrency)) }
       .drive(euroLbl.rx.text)
     
     _ = name
