@@ -104,6 +104,7 @@ extension CurrentTripVC: UITableViewDataSource {
         
         cell.disposable?.dispose()
         cell.title.text = item.title
+        cell.subtitle.text = item.price?.formatted
         cell.price.text = item.fee?.formatted
         cell.disposable = cell.deleteBtn.rx.tap
             .asDriver()
@@ -122,6 +123,7 @@ extension CurrentTripVC: UITableViewDataSource {
 class TripItemCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
     

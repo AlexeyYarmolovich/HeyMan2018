@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Rx-VS-6aY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7Rx-VS-6aY">
                                 <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
                             </imageView>
                         </subviews>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash.png" width="674" height="1122"/>
+        <image name="Launch.jpeg" width="1996" height="3036"/>
     </resources>
 </document>

@@ -39,6 +39,7 @@ class ProgressImageView: UIImageView {
     private func initLayer() {
 //        arcLayer.strokeColor = UIColor(red: 255/255, green: 170/255, blue: 8/255, alpha: 1).cgColor
         arcLayer.strokeColor = #colorLiteral(red: 0.2942936718, green: 0.7115462422, blue: 0.2344135344, alpha: 1).cgColor
+        
         arcLayer.fillColor = UIColor.clear.cgColor
         arcLayer.lineWidth = lineWidth
         arcLayer.frame = bounds

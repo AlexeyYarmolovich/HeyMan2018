@@ -75,7 +75,7 @@ class CameraVC: UIViewController {
     let exchanged = Exchange.exchange(amount: value, paymentMethod: eurPaymentMethod, fromCurrency: self.fromCurrency)
     let priceMoney = Money(exchanged, Currency.eur)
     
-    ItemStorage.shared.add(newItem: TripItem(title, priceMoney, priceMoney))
+    ItemStorage.shared.add(newItem: TripItem(title, Money(Double(price.value), Currency.pln), priceMoney))
     
     SVProgressHUD.setDefaultStyle(.dark)
     SVProgressHUD.setMinimumDismissTimeInterval(1.5)

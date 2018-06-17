@@ -25,7 +25,7 @@ struct Money: JSONParsable, JSONConvertable {
         switch currency {
         case .byn, .rub, .pln: return String(format: "%.0f\(currency.rawValue)", value)
         case .usd: return String(format: "$%.0f", value)
-        case .eur: return String(format: "€%.2f", value)
+        case .eur: return String(format: "€%.0f", value)
         }
     }
     

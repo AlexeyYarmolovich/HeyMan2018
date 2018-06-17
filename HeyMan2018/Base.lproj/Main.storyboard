@@ -459,7 +459,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgP-ed-Moh">
-                                                    <rect key="frame" x="296" y="20.5" width="40" height="40"/>
+                                                    <rect key="frame" x="315" y="20.5" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="OCz-xd-kf0"/>
                                                         <constraint firstAttribute="width" constant="40" id="hHk-Rn-4ds"/>
@@ -485,12 +485,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="TfF-Va-Vlx" secondAttribute="bottom" id="nEC-m8-8JC"/>
                                                 <constraint firstItem="U2y-NI-Avk" firstAttribute="centerY" secondItem="uGR-2L-JLQ" secondAttribute="centerY" id="s0h-l3-vk7"/>
                                                 <constraint firstItem="TfF-Va-Vlx" firstAttribute="leading" secondItem="uGR-2L-JLQ" secondAttribute="leading" constant="20" id="tKJ-BN-SYi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="lgP-ed-Moh" secondAttribute="trailing" constant="24" id="twl-oC-aoK"/>
+                                                <constraint firstAttribute="trailing" secondItem="lgP-ed-Moh" secondAttribute="trailing" constant="20" id="twl-oC-aoK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="deleteBtn" destination="lgP-ed-Moh" id="ZK4-hv-MsB"/>
                                             <outlet property="price" destination="EkS-L1-mrW" id="s07-8Z-AmR"/>
+                                            <outlet property="subtitle" destination="o4n-QY-Up4" id="sS2-at-F1A"/>
                                             <outlet property="title" destination="Z5t-Ya-tGb" id="Qff-tv-VaK"/>
                                         </connections>
                                     </tableViewCell>

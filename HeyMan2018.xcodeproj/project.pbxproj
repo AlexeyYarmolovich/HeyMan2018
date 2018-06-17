@@ -31,6 +31,7 @@
 		1127400920D5F73000C54F94 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400820D5F73000C54F94 /* Exchange.swift */; };
 		1127400B20D5F8A000C54F94 /* ExchangeCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400A20D5F8A000C54F94 /* ExchangeCurrency.swift */; };
 		1127400D20D60CF700C54F94 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1127400C20D60CF600C54F94 /* Splash.png */; };
+		11FFE88B20D645CA0061167A /* Launch.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 11FFE88A20D645C90061167A /* Launch.jpeg */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -69,6 +70,7 @@
 		1127400820D5F73000C54F94 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		1127400A20D5F8A000C54F94 /* ExchangeCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCurrency.swift; sourceTree = "<group>"; };
 		1127400C20D60CF600C54F94 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
+		11FFE88A20D645C90061167A /* Launch.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Launch.jpeg; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				B409054C20D28B6C00144955 /* AppDelegate.swift */,
 				B409055020D28B6C00144955 /* Main.storyboard */,
 				B409055520D28B6D00144955 /* LaunchScreen.storyboard */,
+				11FFE88A20D645C90061167A /* Launch.jpeg */,
 				1127400C20D60CF600C54F94 /* Splash.png */,
 				1127400620D5EC0B00C54F94 /* Assets.xcassets */,
 				8A9471A920D55B3100523485 /* HeyMan2018-Bridging-Header.h */,
@@ -282,6 +285,7 @@
 			files = (
 				B409055720D28B6D00144955 /* LaunchScreen.storyboard in Resources */,
 				8AE9949420D583A5002BADE8 /* tessdata in Resources */,
+				11FFE88B20D645CA0061167A /* Launch.jpeg in Resources */,
 				1127400D20D60CF700C54F94 /* Splash.png in Resources */,
 				1127400720D5EC0B00C54F94 /* Assets.xcassets in Resources */,
 				B409055220D28B6C00144955 /* Main.storyboard in Resources */,
