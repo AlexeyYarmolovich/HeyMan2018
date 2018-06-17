@@ -34,7 +34,11 @@ class AddPaymentMethodVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func setupInputFields() {
+  @IBAction func laterTap(_ sender: Any) {
+    view.endEditing(true)
+    dismiss(animated: true)
+  }
+  private func setupInputFields() {
         bankInput.inputView = bankPicker
         bankInput.inputAccessoryView = UIUtils.nextBtnToolbar(nextResponder: currencyInput, style: .default)
         currencyInput.inputView = currencyPicker
@@ -66,6 +70,7 @@ class AddPaymentMethodVC: UIViewController {
     
     private func addPaymentMethod() {
         print("ADD PAYMENT METHOD AND COMPLETE")
+      SVProgressHUD.showSuccess(withStatus: "New payment method was created, it will be available soon")
         let method = PaymentMethod(bankPicker.selectedItem, paymentTypePicker.selectedItem, currencyPicker.selectedItem)
         storage.add(newMethod: method)
         

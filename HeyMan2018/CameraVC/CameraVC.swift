@@ -72,18 +72,18 @@ class CameraVC: UIViewController {
     let title = nameLbl.text ?? ""
 
     let value = Double(price.value)
+    guard value > 0 else { return }
     let exchanged = Exchange.exchange(amount: value, paymentMethod: eurPaymentMethod, fromCurrency: self.fromCurrency)
     let priceMoney = Money(exchanged, Currency.eur)
     
     ItemStorage.shared.add(newItem: TripItem(title, Money(Double(price.value), Currency.pln), priceMoney))
     
-    SVProgressHUD.setDefaultStyle(.dark)
-    SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+    
     SVProgressHUD.showSuccess(withStatus: "Item successfully added")
-//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75) {
       let parent = self.parent as! MainVC
       parent.setViewControllers([parent.pages[1]], direction: .forward, animated: true, completion: nil)
-//    }
+    }
     
 //    UIAlertView.
   }
@@ -94,7 +94,7 @@ class CameraVC: UIViewController {
     _ = price.asDriver()
 //      .asSharedSequence(onErrorJustReturn: -1)
       .map { $0 < 0 ? 0 : $0 }
-      .map { String(format: "%.2f USD", Exchange.exchange(amount: Double($0), paymentMethod: self.eurPaymentMethod, fromCurrency: self.fromCurrency) * 0.86144) }
+      .map { String(format: "%.2f USD", Exchange.exchange(amount: Double($0), paymentMethod: self.eurPaymentMethod, fromCurrency: self.fromCurrency) / 0.86144) }
       .drive(priceLabel.rx.text)
     
     _ = price.asDriver()
@@ -164,7 +164,8 @@ class CameraVC: UIViewController {
     session.startRunning()
   }
 
-  
+
+  var emptyResponseCount = 0
   private func handleDetection(request: VNRequest, error: Error?) {
     
     guard let detectionResults = request.results else {
@@ -175,8 +176,19 @@ class CameraVC: UIViewController {
       return $0 as? VNTextObservation
     }
     if textResults.isEmpty {
+      emptyResponseCount += 1
+      
+      if emptyResponseCount >= 30 {
+        DispatchQueue.main.async { [weak self] in
+
+        self!.removeTextLayers()
+        self!.priceLabel.text = "0.00 USD"
+        self!.euroLbl.text = "0.00 EUR"
+        }
+      }
       return
     }
+    emptyResponseCount = 0
    textObservations = (textResults as! [VNTextObservation])
       .map { (observation: $0, area: $0.boundingBox.size.area) }
       .sorted(by: { $0.area > $1.area } )
@@ -360,7 +372,7 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
   var myChars = "0123456789.,"
 //    myCharSet.insert(".")
 //    myCharSet.insert(",")
-    print(text)
+//    print(text)
     var st = text
     let resultStrin = st.filter { (ch) -> Bool in
       myChars.contains(ch)
@@ -391,7 +403,7 @@ class Magic {
 
   }
   
-  static var minOccurancies = 4
+  static var minOccurancies = 6
   
   static func emmitedString(_ string: String) {
     let now = Date().timeIntervalSince1970
@@ -401,12 +413,17 @@ class Magic {
     }
     
     if intervals.count < minOccurancies {
+      print("added int \(intervals.count + 1) || \(string)")
       base[string]?.append(now)
     } else {
-      if now - intervals.first! < 4 {
+      if now - intervals.first! < 2 {
         let flot = (string as NSString).floatValue
         label.value = CGFloat(flot)
+        print("dispd int \(intervals.count) || \(string)")
+
       }
+      print("updtd int \(intervals.count) || \(string)")
+
         base[string]!.remove(at: 0)
         base[string]!.append(now)
     
