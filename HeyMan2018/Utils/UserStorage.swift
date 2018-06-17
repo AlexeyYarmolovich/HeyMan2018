@@ -24,4 +24,11 @@ class UserStorage {
         UserDefaults.standard.set(launchedBefore, forKey: "launchedBefore")
     }
     
+    func lastTotal() -> Double {
+        return UserDefaults.standard.double(forKey: "lastTotal")
+    }
+    
+    func set(lastTotal: Double) {
+        UserDefaults.standard.set(lastTotal, forKey: "lastTotal")
+    }
 }

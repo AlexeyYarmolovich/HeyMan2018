@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 private let mockData: [TripItem] = [
     TripItem("Item1", Money(10.0, .usd), Money(3.0, .eur)),
@@ -21,8 +23,18 @@ class CurrentTripVC: UIViewController {
     
     @IBOutlet weak var itemTable: UITableView!
     @IBOutlet weak var settingsBtn: UIButton!
+    @IBOutlet weak var limitLabel: UILabel!
+    @IBOutlet weak var endBtn: UIButton!
+    @IBOutlet weak var progressImageView: ProgressImageView!
     
+    private let disposeBag = DisposeBag()
     private var items = [TripItem]()
+    private var totalCustoms: Double {
+        let total = items.map { $0.fee?.value ?? 0.0 }
+        let sum = total.reduce(0.0, +)
+
+        return UserStorage.shared.lastTotal() + sum
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +43,14 @@ class CurrentTripVC: UIViewController {
         
         configureBounceBackground()
         loadItems()
+        
+        endBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [unowned self] in
+                UserStorage.shared.set(lastTotal: self.totalCustoms)
+                Router.shared.navigateToNewTrip()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureBounceBackground() {
@@ -47,6 +67,9 @@ class CurrentTripVC: UIViewController {
     
     private func loadItems() {
         items = mockData
+        limitLabel.text = String(format: "€%.0f/300", totalCustoms)
+        progressImageView.ratio = CGFloat(totalCustoms / 300.0)
+        
         itemTable.reloadData()
     }
 }

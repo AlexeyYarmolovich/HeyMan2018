@@ -39,6 +39,10 @@ class Router {
         keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
     }
     
+    func navigateToNewTrip() {
+        keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateTripVC")
+    }
+    
     func showAddCard() {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddPaymentMethodVC")
         keyWindow?.rootViewController?.present(controller, animated: true, completion: nil)
