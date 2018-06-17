@@ -398,12 +398,6 @@ class Magic {
       if now - intervals.first! < 4 {
         let flot = (string as NSString).floatValue
         label.value = CGFloat(flot)
-//        label.onNext(CGFloat(flot))
-        
-//        DispatchQueue.main.async {
-//
-//          label.text = string
-//        }
       }
         base[string]!.remove(at: 0)
         base[string]!.append(now)
