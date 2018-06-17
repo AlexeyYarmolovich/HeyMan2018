@@ -45,8 +45,11 @@ class CameraVC: UIViewController {
   
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var euroLbl: UILabel!
+  @IBOutlet weak var nameLbl: UILabel!
   
   let price = PublishSubject<CGFloat>()
+  
+  let name = PublishSubject<String>()
   
   var foundPriceText: String = ""
   
@@ -73,6 +76,12 @@ class CameraVC: UIViewController {
       .asSharedSequence(onErrorJustReturn: -1)
       .map { String(format: "%.0f EUR", $0*2) }
       .drive(euroLbl.rx.text)
+    
+    _ = name
+      .asSharedSequence(onErrorJustReturn: "")
+      .drive(nameLbl.rx.text)
+    
+    
 //      .subscribe()
     
 //      .drive(to: priceLabel.rx.text)
@@ -144,7 +153,7 @@ class CameraVC: UIViewController {
    textObservations = (textResults as! [VNTextObservation])
       .map { (observation: $0, area: $0.boundingBox.size.area) }
       .sorted(by: { $0.area > $1.area } )
-      .prefix(3)
+      .prefix(2)
       .map { $0.observation }
 
     DispatchQueue.main.async { [weak self] in
@@ -331,6 +340,10 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     if !resultStrin.isEmpty {
       Magic.emmitedString(resultStrin)
+    } else {
+      if text.count > 7 {
+        name.onNext(text)
+      }
     }
 //    guard myCharSet.isSuperset(of: CharacterSet(charactersIn: text)) else { return }
     

@@ -203,12 +203,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdj-lE-NpU">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdj-lE-NpU">
+                                <rect key="frame" x="187.5" y="577" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tud-Vc-G77">
                                 <rect key="frame" x="180" y="460" width="16" height="80"/>
@@ -251,15 +250,18 @@
                             <constraint firstItem="Vs1-fB-n3A" firstAttribute="top" secondItem="f8x-w5-WZV" secondAttribute="top" id="LAu-ZA-09f"/>
                             <constraint firstItem="cxi-0Z-Y2v" firstAttribute="leading" secondItem="5Xh-1s-VvK" secondAttribute="leading" constant="40" id="Reb-SH-HNU"/>
                             <constraint firstItem="5Xh-1s-VvK" firstAttribute="bottom" secondItem="Vs1-fB-n3A" secondAttribute="bottom" id="aBd-I3-4hn"/>
+                            <constraint firstItem="Tud-Vc-G77" firstAttribute="top" secondItem="tdj-lE-NpU" secondAttribute="bottom" constant="-117" id="bHu-qj-rTw"/>
                             <constraint firstItem="5Xh-1s-VvK" firstAttribute="trailing" secondItem="Vs1-fB-n3A" secondAttribute="trailing" id="ccS-cz-Z3M"/>
                             <constraint firstItem="cxi-0Z-Y2v" firstAttribute="centerX" secondItem="f8x-w5-WZV" secondAttribute="centerX" id="nya-Us-JOW"/>
                             <constraint firstItem="Vs1-fB-n3A" firstAttribute="leading" secondItem="5Xh-1s-VvK" secondAttribute="leading" id="r7M-a3-KoR"/>
+                            <constraint firstItem="tdj-lE-NpU" firstAttribute="centerX" secondItem="f8x-w5-WZV" secondAttribute="centerX" id="y8S-Nh-ack"/>
                             <constraint firstItem="Tud-Vc-G77" firstAttribute="centerX" secondItem="f8x-w5-WZV" secondAttribute="centerX" id="ybP-gb-AHV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Xh-1s-VvK"/>
                     </view>
                     <connections>
                         <outlet property="euroLbl" destination="bvu-II-edV" id="dHT-Wt-JZy"/>
+                        <outlet property="nameLbl" destination="tdj-lE-NpU" id="LWt-Ml-Iay"/>
                         <outlet property="priceLabel" destination="VR7-gC-kof" id="7dZ-RF-3tq"/>
                     </connections>
                 </viewController>
