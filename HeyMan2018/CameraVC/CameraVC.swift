@@ -9,10 +9,42 @@
 
 import AVFoundation
 import UIKit
-import Vision 
+import Vision
+import RxSwift
+import RxCocoa
+
+class PlateModel {
+  
+}
+
+class Plate: CALayer {
+  
+  var textLayer: CATextLayer
+  
+  func setModel(_ model: PlateModel) {
+    
+  }
+  
+  override init() {
+    textLayer = CATextLayer.init()
+
+    super.init()
+    
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+
+
 
 
 class CameraVC: UIViewController {
+  
+  @IBOutlet weak var priceLabel: UILabel!
+  
+  var foundPriceText: String = ""
   
   private var textDetectionRequest: VNDetectTextRectanglesRequest?
   private let session = AVCaptureSession()
@@ -20,13 +52,14 @@ class CameraVC: UIViewController {
   private var tesseract = G8Tesseract(language: "eng", engineMode: .tesseractOnly)
   private var font = CTFontCreateWithName("Helvetica" as CFString, 18, nil)
   
-  private var cameraView: CameraView {
-    return view as! CameraView
-  }
+  private lazy var cameraView: CameraView = {
+    return view.subviews.first { $0 is CameraView } as! CameraView
+  }()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    Magic.setLabel(priceLabel)
     // Do any additional setup after loading the view, typically from a nib.
     tesseract?.pageSegmentationMode = .singleBlock
     // Recognize only these characters
@@ -95,7 +128,7 @@ class CameraVC: UIViewController {
       .sorted(by: { $0.area > $1.area } )
       .prefix(3)
       .map { $0.observation }
-    print(textObservations.count)
+
     DispatchQueue.main.async { [weak self] in
       
       guard let `self` = self else { return }
@@ -109,13 +142,15 @@ class CameraVC: UIViewController {
         
 //        if let textResult = result {
         
-//          self.placeBorderLayer(for: result,viewWidth: viewWidth, viewHeight: viewHeight)
+          self.placePlate(for: result,viewWidth: viewWidth, viewHeight: viewHeight)
 //        }
       }
     }
   }
   
-  private func placeBorderLayer(for textResult: VNTextObservation, viewWidth: CGFloat, viewHeight: CGFloat) {
+  lazy var borderColor = { UIColor.gray.withAlphaComponent(0.5).cgColor }()
+  
+  private func placePlate(for textResult: VNTextObservation, viewWidth: CGFloat, viewHeight: CGFloat) {
     let layer = CALayer()
     var rect = textResult.boundingBox
     rect.origin.x *= viewWidth
@@ -124,13 +159,13 @@ class CameraVC: UIViewController {
     rect.size.width *= viewWidth
     
     layer.frame = rect
-//    layer.borderWidth = 2
-    layer.backgroundColor = UIColor.red.cgColor
-    self.view.layer.addSublayer(layer)
+    layer.borderWidth = 2
+    layer.borderColor = UIColor.gray.cgColor
+    self.cameraView.layer.addSublayer(layer)
   }
   
   private func removeTextLayers() {
-    guard let sublayers = self.view.layer.sublayers else {
+    guard let sublayers = self.cameraView.layer.sublayers else {
       return
     }
     for layer in sublayers[1...] {
@@ -188,7 +223,6 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
       .map { (observation: $0, area: $0.boundingBox.size.area) }
       .sorted(by: { $0.area > $1.area } )
       .prefix(3)
-//      .prefix(upTo: 3)
       .map { $0.observation }
     
     
@@ -219,22 +253,23 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
       guard var text = tesseract?.recognizedText else {
         continue
       }
+      checkForPrice(text: text)
       text = text.trimmingCharacters(in: CharacterSet.newlines)
       if !text.isEmpty {
-        let x = xMin
-        let y = 1 - yMax
-        let width = xMax - xMin
-        let height = yMax - yMin
-        recognizedTextPositionTuples.append((rect: CGRect(x: x, y: y, width: width, height: height), text: text))
+//        let x = xMin
+//        let y = 1 - yMax
+//        let width = xMax - xMin
+//        let height = yMax - yMin
+        recognizedTextPositionTuples.append((rect: textObservation.boundingBox, text: text))
       }
     }
     
     //clear old
     textObservations.removeAll()
     DispatchQueue.main.async {
-      let viewWidth = self.view.frame.size.width
-      let viewHeight = self.view.frame.size.height
-      guard let sublayers = self.view.layer.sublayers else {
+      let viewWidth = self.cameraView.frame.size.width
+      let viewHeight = self.cameraView.frame.size.height
+      guard let sublayers = self.cameraView.layer.sublayers else {
         return
       }
       for layer in sublayers[1...] {
@@ -245,27 +280,85 @@ extension CameraVC: AVCaptureVideoDataOutputSampleBufferDelegate {
       }
       //add new
       for tuple in recognizedTextPositionTuples {
-        let textLayer = CATextLayer()
-        textLayer.backgroundColor = UIColor.red.cgColor
-        textLayer.font = self.font
-        var rect = tuple.rect
-        
-        rect.origin.x *= viewWidth
-        rect.size.width *= viewWidth
-        rect.origin.y *= viewHeight
-        rect.size.height *= viewHeight
+//        let textLayer = CATextLayer()
+//        textLayer.backgroundColor = UIColor.green.cgColor
+//        textLayer.font = self.font
+//        var rect = tuple.rect
+//        
+//        rect.origin.x *= viewWidth
+//        rect.size.width *= viewWidth
+//        rect.origin.y *= viewHeight
+//        rect.size.height *= viewHeight
         
         // Increase the size of text layer to show text of large lengths
-        rect.size.width += 100
-        rect.size.height += 100
+//        rect.size.width += 100
+//        rect.size.height += 100
         
-        textLayer.frame = rect
-        textLayer.string = tuple.text
-        textLayer.foregroundColor = UIColor.green.cgColor
-        self.view.layer.addSublayer(textLayer)
+//        textLayer.frame = rect
+//        textLayer.string = tuple.text
+//        textLayer.foregroundColor = UIColor.green.cgColor
+//        self.cameraView.layer.addSublayer(textLayer)
       }
     }
   }
+  
+  private func checkForPrice(text: String) {
+  var myChars = "0123456789.,"
+//    myCharSet.insert(".")
+//    myCharSet.insert(",")
+    print(text)
+    var st = text
+    let resultStrin = st.filter { (ch) -> Bool in
+      myChars.contains(ch)
+    }
+    Magic.emmitedString(resultStrin)
+//    guard myCharSet.isSuperset(of: CharacterSet(charactersIn: text)) else { return }
+    
+//      DispatchQueue.main.async {
+//
+//      self.priceLabel.text = resultStrin
+//      }
+
+  }
+}
+
+class Magic {
+  static var base: [String: [TimeInterval]] = [:]
+  static var label: UILabel!
+  
+  static func setLabel(_ label: UILabel) {
+    self.label = label
+
+  }
+  
+  static var minOccurancies = 4
+  
+  static func emmitedString(_ string: String) {
+    let now = Date().timeIntervalSince1970
+    guard let intervals = base[string], !intervals.isEmpty else {
+      base[string] = [now]
+      return
+    }
+    
+    if intervals.count < minOccurancies {
+      base[string]?.append(now)
+    } else {
+      if now - intervals.first! < 4 {
+        DispatchQueue.main.async {
+          
+          label.text = string
+        }
+      }
+        base[string]!.remove(at: 0)
+        base[string]!.append(now)
+    
+    }
+
+
+  }
+  
+  
+  
 }
 
 extension CGSize {

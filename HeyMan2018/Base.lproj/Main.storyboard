@@ -180,12 +180,36 @@
         <scene sceneID="B9J-bg-vIZ">
             <objects>
                 <viewController storyboardIdentifier="CameraVC" id="tMG-st-uK8" customClass="CameraVC" customModule="HeyMan2018" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f8x-w5-WZV" customClass="CameraView" customModule="HeyMan2018" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="f8x-w5-WZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vs1-fB-n3A" customClass="CameraView" customModule="HeyMan2018" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-gC-kof">
+                                <rect key="frame" x="155.5" y="120" width="64" height="32.5"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.37254901959999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vs1-fB-n3A" firstAttribute="top" secondItem="f8x-w5-WZV" secondAttribute="top" id="LAu-ZA-09f"/>
+                            <constraint firstItem="5Xh-1s-VvK" firstAttribute="bottom" secondItem="Vs1-fB-n3A" secondAttribute="bottom" id="aBd-I3-4hn"/>
+                            <constraint firstItem="5Xh-1s-VvK" firstAttribute="trailing" secondItem="Vs1-fB-n3A" secondAttribute="trailing" id="ccS-cz-Z3M"/>
+                            <constraint firstItem="VR7-gC-kof" firstAttribute="centerX" secondItem="f8x-w5-WZV" secondAttribute="centerX" id="d7C-2Q-hNS"/>
+                            <constraint firstItem="VR7-gC-kof" firstAttribute="top" secondItem="5Xh-1s-VvK" secondAttribute="top" constant="100" id="mso-m6-1gw"/>
+                            <constraint firstItem="Vs1-fB-n3A" firstAttribute="leading" secondItem="5Xh-1s-VvK" secondAttribute="leading" id="r7M-a3-KoR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5Xh-1s-VvK"/>
                     </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="VR7-gC-kof" id="7dZ-RF-3tq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFV-50-YCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
