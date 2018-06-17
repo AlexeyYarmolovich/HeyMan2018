@@ -53,12 +53,10 @@ struct PaymentMethod: JSONParsable, JSONConvertable {
 
 enum Bank: String, TitleRepresentable {
     case mtb = "МТБ Банк"
-    case belarus = "Беларусбанк"
-    case vtb = "ВТБ Банк"
-    case alpha = "Альфа-Банк"
+    case prior = "Приорбанк"
     
     static var all: [Bank] {
-        return [.mtb, .belarus, .vtb, .alpha]
+        return [.mtb, .prior]
     }
     
     var title: String {
@@ -67,10 +65,10 @@ enum Bank: String, TitleRepresentable {
 }
 
 enum PaymentType: String, TitleRepresentable {
-    case visa = "VISA", master = "MasterCard", union = "UnionPay"
+    case visa = "VISA", master = "MasterCard"
     
     static var all: [PaymentType] {
-        return [.visa, .master, .union]
+        return [.visa, .master]
     }
     
     var title: String {

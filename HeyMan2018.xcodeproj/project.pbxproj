@@ -27,6 +27,7 @@
 		11273FFD20D5BF7D00C54F94 /* ProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */; };
 		11273FFF20D5CD5200C54F94 /* CGRectExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11273FFE20D5CD5200C54F94 /* CGRectExt.swift */; };
 		1127400320D5DFFD00C54F94 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127400220D5DFFD00C54F94 /* UIUtils.swift */; };
+		1127400720D5EC0B00C54F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1127400620D5EC0B00C54F94 /* Assets.xcassets */; };
 		8A9471A620D557BA00523485 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A520D557BA00523485 /* CameraView.swift */; };
 		8A9471A820D5586200523485 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9471A720D5586200523485 /* CameraVC.swift */; };
 		8A9471AB20D55C1D00523485 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9471AA20D55C1D00523485 /* TesseractOCR.framework */; };
@@ -36,7 +37,6 @@
 		B409054D20D28B6C00144955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054C20D28B6C00144955 /* AppDelegate.swift */; };
 		B409054F20D28B6C00144955 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409054E20D28B6C00144955 /* CreateTripVC.swift */; };
 		B409055220D28B6C00144955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055020D28B6C00144955 /* Main.storyboard */; };
-		B409055420D28B6D00144955 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B409055320D28B6D00144955 /* Assets.xcassets */; };
 		B409055720D28B6D00144955 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B409055520D28B6D00144955 /* LaunchScreen.storyboard */; };
 		E1B3CC5EA659FB4D85D22477 /* Pods_HeyMan2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +62,7 @@
 		11273FFC20D5BF7D00C54F94 /* ProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressImageView.swift; sourceTree = "<group>"; };
 		11273FFE20D5CD5200C54F94 /* CGRectExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExt.swift; sourceTree = "<group>"; };
 		1127400220D5DFFD00C54F94 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		1127400620D5EC0B00C54F94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D92FEA84E0292A8DE5E0059 /* Pods_HeyMan2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyMan2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9471A520D557BA00523485 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		8A9471A720D5586200523485 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		B409054C20D28B6C00144955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B409054E20D28B6C00144955 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripVC.swift; sourceTree = "<group>"; };
 		B409055120D28B6C00144955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B409055320D28B6D00144955 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B409055620D28B6D00144955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B409055820D28B6D00144955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6FEFAF1E6D71D7EBF87F141 /* Pods-HeyMan2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeyMan2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeyMan2018/Pods-HeyMan2018.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				B409054C20D28B6C00144955 /* AppDelegate.swift */,
 				B409055020D28B6C00144955 /* Main.storyboard */,
 				B409055520D28B6D00144955 /* LaunchScreen.storyboard */,
-				B409055320D28B6D00144955 /* Assets.xcassets */,
+				1127400620D5EC0B00C54F94 /* Assets.xcassets */,
 				8A9471A920D55B3100523485 /* HeyMan2018-Bridging-Header.h */,
 				B409055820D28B6D00144955 /* Info.plist */,
 			);
@@ -273,7 +273,7 @@
 			files = (
 				B409055720D28B6D00144955 /* LaunchScreen.storyboard in Resources */,
 				8AE9949420D583A5002BADE8 /* tessdata in Resources */,
-				B409055420D28B6D00144955 /* Assets.xcassets in Resources */,
+				1127400720D5EC0B00C54F94 /* Assets.xcassets in Resources */,
 				B409055220D28B6C00144955 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

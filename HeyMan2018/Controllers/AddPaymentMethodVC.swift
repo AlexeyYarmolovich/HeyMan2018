@@ -36,8 +36,32 @@ class AddPaymentMethodVC: UIViewController {
     
     private func setupInputFields() {
         bankInput.inputView = bankPicker
+        bankInput.inputAccessoryView = UIUtils.nextBtnToolbar(nextResponder: currencyInput, style: .default)
         currencyInput.inputView = currencyPicker
+        currencyInput.inputAccessoryView = UIUtils.nextBtnToolbar(nextResponder: typeInput, style: .default)
         typeInput.inputView = paymentTypePicker
+        typeInput.inputAccessoryView = UIUtils.doneBtnToolbar(responder: typeInput, style: .default)
+        
+        bankPicker.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.bankInput.text = self.bankPicker.selectedItem.title
+            })
+            .disposed(by: disposeBag)
+        
+        currencyPicker.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.currencyInput.text = self.currencyPicker.selectedItem.title
+            })
+            .disposed(by: disposeBag)
+        
+        paymentTypePicker.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.typeInput.text = self.paymentTypePicker.selectedItem.title
+            })
+            .disposed(by: disposeBag)
     }
     
     private func addPaymentMethod() {
@@ -46,5 +70,7 @@ class AddPaymentMethodVC: UIViewController {
         storage.add(newMethod: method)
         
         view.endEditing(true)
+        
+        dismiss(animated: true, completion: nil)
     }
 }
